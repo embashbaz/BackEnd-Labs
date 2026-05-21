@@ -1,4 +1,4 @@
-# Food Delivery Platform — Microservices in Spring Boot
+# Food Delivery Platform - Microservices in Spring Boot
 
 **Complexity:** Advanced | **Time estimate:** 14–18 hours
 
