@@ -1,453 +1,603 @@
-Task Management System  
-Project Overview  
+# Task Management System
 
-Complexity: Medium  
-Time Estimate: 6–8 hours  
-Technology Stack: Java 21 (LTS), IntelliJ IDEA Community Edition, JUnit 5  
+## **Project Overview**
+---
 
-This lab builds Lab 1 – Java Basics by refactoring the Project/Task Management System for cleaner, safer, and testable code.  
+**Technology Stack:** Java 21 (LTS), IntelliJ IDEA Community Edition, JUnit 5
 
-You’ll apply exception handling, SOLID principles, and unit testing using JUnit 5, while maintaining version control with Git.  
+This lab builds **Lab 1 – Java Basics** by refactoring the **Project/Task Management System** for **cleaner, safer, and testable code**.
 
-All functionality from Lab 1 (Project creation, Task management, Completion averages) remains, but now enhanced with:  
+You'll apply **exception handling**, **SOLID principles**, and **unit testing** using JUnit 5, while maintaining version control with Git.
 
-Custom exceptions for invalid inputs  
-Refactored, modular code with better naming and organization  
-Basic JUnit tests for core functions  
-Git repository setup and proper commit workflow  
+All functionality from Lab 1 (Project creation, Task management, Completion averages) remains, but now enhanced with:
 
-All data remains in memory using arrays (no external DB). Future labs will introduce collections and file persistence.  
+- Custom exceptions for invalid inputs
 
-Project Objectives  
+- Refactored, modular code with better naming and organization
 
-By completing this lab, you will be able to:  
+- Basic JUnit tests for core functions
 
-Apply clean code principles (SOLID, naming conventions, method modularity).  
-Implement exception handling using try-catch blocks and custom exceptions.  
-Refactor Lab 1 code for improved readability and maintainability.  
-Write and run JUnit unit tests for methods like task status updates and completion calculations.  
-Use Git for source control: initialize repositories, commit changes, create branches, and merge.  
-Evaluate code quality through consistent indentation, comments, and naming.  
-Handle invalid user inputs gracefully through custom exception messages.  
-Prepare the system for future enhancements (Week 3 will replace arrays with collections).  
+- Git repository setup and proper commit workflow
 
-System Features Overview  
+All data remains in memory using **arrays** (no external DB). Future labs will introduce **collections** and **file persistence**.
 
-Your Project/Task Management System should now include error handling, refactoring, and testing enhancements for these five core features:  
+---
 
-Feature 1: Project Catalog Management  
 
-Same as Lab 1 (creating and listing projects).  
-Add validation via custom exceptions (e.g., InvalidProjectDataException).  
-Enforce unique project IDs and positive budgets.  
+## **Project Objectives**
+---
+By completing this lab, you will be able to:
 
-Feature 2: Task Operations  
+- Apply **clean code principles** (SOLID, naming conventions, method modularity).
 
-Handle invalid task assignments gracefully (throw TaskNotFoundException).  
-Refactor task creation/update methods for clarity.  
-Add unit tests for task status updates and progress calculation.  
+- Implement **exception handling** using try-catch blocks and custom exceptions.
 
-Feature 3: User Management  
+- Refactor Lab 1 code for improved readability and maintainability.
 
-Refactor user logic to separate responsibilities (e.g., UserService).  
-Validate email and role inputs through exceptions.  
-Use Git branches for adding new user roles (clean commit history).  
+- Write and run **JUnit unit tests** for methods like task status updates and completion calculations.
 
-Feature 4: Status Processing & Reporting  
+- Use **Git** for source control: initialize repositories, commit changes, create branches, and merge.
 
-Add validation for projects with no tasks (throw EmptyProjectException).  
-Test average calculation methods via JUnit.  
-Refactor printing logic to utility methods.  
+- Evaluate code quality through consistent indentation, comments, and naming.
 
-Feature 5: Menu Navigation & User Experience  
+- Handle invalid user inputs gracefully through custom exception messages.
 
-Improve input validation with exception handling.  
-Display user-friendly error messages for invalid entries.  
-Ensure menu loops remain stable under exceptions.  
+- Prepare the system for future enhancements (Week 3 will replace arrays with collections).
 
-Console UI Examples  
+---
 
-Below are sample enhanced console outputs showing error handling and testing feedback.  
 
-1. Main Menu  
+## **System Features Overview**
+---
 
-╔════════════════════════════════════════════╗  
-║     JAVA PROJECT MANAGEMENT SYSTEM         ║  
-╚════════════════════════════════════════════╝  
+Your **Project/Task Management System** should now include error handling, refactoring, and testing enhancements for these five core features:
 
-Current User:  Alice Johnson (Admin)  
+### **Feature 1: Project Catalog Management**
 
-Main Menu:  
------------  
-1. Manage Projects  
-2. Manage Tasks  
-3. View Status Reports  
-4. Switch User  
-5. Exit  
+- Same as Lab 1 (creating and listing projects).
 
-Enter your choice: _  
+- Add validation via custom exceptions (e.g., InvalidProjectDataException).
 
-2. Invalid Input Handled via Exception  
+- Enforce unique project IDs and positive budgets.
 
-Enter project ID: P999  
-❌ Error: ProjectNotFoundException – Project ID 'P999' does not exist.  
-Please try again.  
+### **Feature 2: Task Operations**
 
-Enter project ID: P001  
-✓ Project 'Alpha Tracker' loaded successfully.  
+- Handle invalid task assignments gracefully (throw TaskNotFoundException).
 
-3. Add Task – Validation  
+- Refactor task creation/update methods for clarity.
 
-╔════════════════════════════════════════════╗  
-║               ADD NEW TASK                 ║  
-╚════════════════════════════════════════════╝  
+- Add unit tests for task status updates and progress calculation.
 
-Enter task name: Implement API  
-Enter status (Pending/In Progress/Completed): In Progress  
+### **Feature 3: User Management**
 
-✓ Task 'Implement API' successfully added to Project P001.  
+- Refactor user logic to separate responsibilities (e.g., UserService).
 
-4. Exception During Task Update  
+- Validate email and role inputs through exceptions.
 
-Enter task ID: T999  
-❌ Error: TaskNotFoundException – Task 'T999' was not found in the project.  
+- Use Git branches for adding new user roles (clean commit history).
 
-Operation aborted. Returning to task menu...  
+### **Feature 4: Status Processing & Reporting**
 
-5. Status Report Display  
+- Add validation for projects with no tasks (throw EmptyProjectException).
 
-╔════════════════════════════════════════════╗  
-║            PROJECT STATUS REPORT           ║  
-╚════════════════════════════════════════════╝  
+- Test average calculation methods via JUnit.
 
-PROJECT ID | PROJECT NAME      | TASKS | COMPLETED | PROGRESS (%)  
------------------------------------------------------------------  
-P001       | Alpha Tracker     |   4   |    3      |   75%  
-P002       | IoT Sensor Kit    |   2   |    1      |   50%  
------------------------------------------------------------------  
-AVERAGE COMPLETION: 62.5%  
+- Refactor printing logic to utility methods.
 
-✓ Report generated successfully.  
+### **Feature 5: Menu Navigation & User Experience**
 
-6. Git Commit Workflow (Example Output)  
+- Improve input validation with exception handling.
 
-git init  
-git add .  
-git commit -m "Refactor: Added custom exceptions and cleaned class structure"  
-git branch feature/testing  
-git checkout feature/testing  
-git add src/test  
-git commit -m "Test: Added JUnit test for progress calculation"  
-git checkout main  
-git merge feature/testing  
+- Display user-friendly error messages for invalid entries.
 
-7. JUnit Test Example  
+- Ensure menu loops remain stable under exceptions.
 
-@Test  
-void testCalculateCompletionPercentage() {  
-   Project p = new SoftwareProject("P001", "Alpha Tracker", 5, 15000);  
-   p.addTask(new Task("T001", "Setup DB", "Completed"));  
-   p.addTask(new Task("T002", "Design UI", "In Progress"));  
+---
 
-   double result = p.calculateCompletionPercentage();  
-   assertEquals(50.0, result);  
-}  
 
-Expected User Workflows  
+## **Console UI Examples**
+---
+Below are sample enhanced console outputs showing error handling and testing feedback.
 
-Workflow 1: Refactor and Run  
+### **1. Main Menu**
 
-User opens existing Lab 1 project → Refactors code → Runs updated program → Confirms all previous features still work.  
+```
+╔════════════════════════════════════════════╗
+║     JAVA PROJECT MANAGEMENT SYSTEM         ║
+╚════════════════════════════════════════════╝
 
-Workflow 2: Exception Handling  
+Current User:  Alice Johnson (Admin)
 
-User enters invalid data (e.g., negative budget) → System throws custom exception → Displays error → Returns to menu without crashing.  
+Main Menu:
+-----------
+1. Manage Projects
+2. Manage Tasks
+3. View Status Reports
+4. Switch User
+5. Exit
 
-Workflow 3: Unit Testing  
+Enter your choice: _
+```
 
-User writes JUnit tests for calculateCompletionPercentage() → Runs tests → All pass with green indicators.  
+### **2. Invalid Input Handled via Exception**
 
-Workflow 4: Git Versioning  
+```
+Enter project ID: P999
+❌ Error: ProjectNotFoundException – Project ID 'P999' does not exist.
+Please try again.
 
-User initializes Git repo → Makes commits after refactoring and testing → Creates branch for new exceptions → Merges cleanly.  
+Enter project ID: P001
+✓ Project 'Alpha Tracker' loaded successfully.
+```
 
-User Stories  
+### **3. Add Task – Validation**
 
-Epic 1: Code Refactoring  
+```
+╔════════════════════════════════════════════╗
+║               ADD NEW TASK                 ║
+╚════════════════════════════════════════════╝
 
-US-1.1: Refactor Class Design As a developer I want to simplify methods and names so that the code is easier to maintain.  
+Enter task name: Implement API
+Enter status (Pending/In Progress/Completed): In Progress
 
-Acceptance Criteria:  
+✓ Task 'Implement API' successfully added to Project P001.
+```
 
-No duplicate logic.  
-Descriptive method and variable names.  
-Single Responsibility per class.  
+### **4. Exception During Task Update**
 
-Technical Requirements:  
+```
+Enter task ID: T999
+❌ Error: TaskNotFoundException – Task 'T999' was not found in the project.
 
-Apply SOLID principles (Single Responsibility, Open/Closed).  
-Split large methods into smaller ones.  
-Use meaningful naming and comments.  
+Operation aborted. Returning to task menu...
+```
 
-Epic 2: Exception Handling  
+### **5. Status Report Display**
 
-US-2.1: Handle Invalid Inputs As a system I want to catch invalid user inputs so that the program does not crash.  
+```
+╔════════════════════════════════════════════╗
+║            PROJECT STATUS REPORT           ║
+╚════════════════════════════════════════════╝
 
-Acceptance Criteria:  
+PROJECT ID | PROJECT NAME      | TASKS | COMPLETED | PROGRESS (%)
+-----------------------------------------------------------------
+P001       | Alpha Tracker     |   4   |    3      |   75%
+P002       | IoT Sensor Kit    |   2   |    1      |   50%
+-----------------------------------------------------------------
+AVERAGE COMPLETION: 62.5%
 
-Throws custom exceptions (e.g., InvalidInputException, TaskNotFoundException).  
-Displays clear error messages.  
-Logs errors to console gracefully.  
+✓ Report generated successfully.
+```
 
-Technical Requirements:  
+### **6. Git Commit Workflow (Example Output)**
 
-Use try-catch-finally blocks.  
-Create custom exception classes in utils.exceptions.  
-Handle validation centrally via ValidationUtils.  
+```bash
+$ git init
+$ git add .
+$ git commit -m "Refactor: Added custom exceptions and cleaned class structure"
+$ git branch feature/testing
+$ git checkout feature/testing
+$ git add src/test
+$ git commit -m "Test: Added JUnit test for progress calculation"
+$ git checkout main
+$ git merge feature/testing
+```
 
-Epic 3: Testing Fundamentals  
+### **7. JUnit Test Example**
 
-US-3.1: Test Completion Calculation As a developer I want to verify that completion percentages are accurate.  
+```java
+@Test
+void testCalculateCompletionPercentage() {
+    Project p = new SoftwareProject("P001", "Alpha Tracker", 5, 15000);
+    p.addTask(new Task("T001", "Setup DB", "Completed"));
+    p.addTask(new Task("T002", "Design UI", "In Progress"));
 
-Acceptance Criteria:  
+    double result = p.calculateCompletionPercentage();
+    assertEquals(50.0, result);
+}
+```
 
-At least 3 JUnit tests for different cases (no tasks, partial, all completed).  
-All tests pass successfully.  
+---
 
-Technical Requirements:  
 
-Add src/test/java/ directory.  
-Use JUnit 5 annotations (@Test, @BeforeEach).  
-Assertions: assertEquals, assertThrows.  
+## **Expected User Workflows**
+---
+### **Workflow 1: Refactor and Run**
 
-Epic 4: Git Version Control  
+User opens existing Lab 1 project → Refactors code → Runs updated program → Confirms all previous features still work.
 
-US-4.1: Version Code Changes As a developer I want to track changes and refactors using Git so that my code history is maintained.  
+### **Workflow 2: Exception Handling**
 
-Acceptance Criteria:  
+User enters invalid data (e.g., negative budget) → System throws custom exception → Displays error → Returns to menu without crashing.
 
-Repository initialized and linked to GitHub.  
-Minimum 3 meaningful commits.  
-One feature branch created and merged.  
+### **Workflow 3: Unit Testing**
 
-Technical Requirements:  
+User writes JUnit tests for calculateCompletionPercentage() → Runs tests → All pass with green indicators.
 
-Run git init, git add ., git commit.  
-Use branches (e.g., feature/exceptions).  
-Merge via git merge.  
+### **Workflow 4: Git Versioning**
 
-Epic 5: Menu Error Handling  
+User initializes Git repo → Makes commits after refactoring and testing → Creates branch for new exceptions → Merges cleanly.
 
-US-5.1: Handle Menu Errors As a user I want the menu to remain functional after invalid inputs.  
+---
 
-Acceptance Criteria:  
 
-Program does not crash on invalid entry.  
-Error message and retry prompt displayed.  
+## **User Stories**
+---
 
-Technical Requirements:  
+### **Epic 1: Code Refactoring**
 
-Use input validation and try-catch in ConsoleMenu.  
-Implement looping until valid entry is provided.  
+**US-1.1:** Refactor Class Design — **As a developer** I want to simplify methods and names so that the code is easier to maintain.
 
-Project Structure  
+**Acceptance Criteria:**
 
-project-management-system/  
-│  
-├── src/  
-│   ├── Main.java  
-│   ├── models/  
-│   │   ├── Project.java  
-│   │   ├── SoftwareProject.java  
-│   │   ├── HardwareProject.java  
-│   │   ├── Task.java  
-│   │   ├── User.java  
-│   │   ├── RegularUser.java  
-│   │   ├── AdminUser.java  
-│   │   └── StatusReport.java  
-│   │  
-│   ├── interfaces/  
-│   │   └── Completable.java  
-│   │  
-│   ├── services/  
-│   │   ├── ProjectService.java  
-│   │   ├── TaskService.java  
-│   │   └── ReportService.java  
-│   │  
-│   └── utils/  
-│       ├── ConsoleMenu.java  
-│       ├── ValidationUtils.java  
-│       └── exceptions/  
-│           ├── InvalidInputException.java  
-│           ├── TaskNotFoundException.java  
-│           └── EmptyProjectException.java  
-│  
-├── test/  
-│   ├── ProjectTests.java  
-│   ├── TaskTests.java  
-│   └── ValidationTests.java  
-│  
-├── docs/  
-│   ├── class-diagram.png  
-│   └── design-decisions.md  
-│  
-└── README.md  
+- No duplicate logic.
 
-Implementation Phases  
+- Descriptive method and variable names.
 
-Phase 1: Refactor Existing Code (1–2 hours)  
+- Single Responsibility per class.
 
-Tasks:  
+**Technical Requirements:**
 
-Review Lab 1 code.  
-Apply SOLID and naming best practices.  
-Separate concerns into services and utils.  
+- Apply SOLID principles (Single Responsibility, Open/Closed).
 
-Deliverables: Refactored, readable code with consistent structure.  
+- Split large methods into smaller ones.
 
-Phase 2: Add Exception Handling (2 hours)  
+- Use meaningful naming and comments.
 
-Tasks:  
+---
 
-Create custom exception classes.  
-Add try-catch logic around input operations.  
+### **Epic 2: Exception Handling**
 
-Deliverables: Program handles invalid inputs gracefully without crashing.  
+**US-2.1:** Handle Invalid Inputs — **As a system** I want to catch invalid user inputs so that the program does not crash.
 
-Phase 3: JUnit Testing (2 hours)  
+**Acceptance Criteria:**
 
-Tasks:  
+- Throws custom exceptions (e.g., InvalidInputException, TaskNotFoundException).
 
-Write unit tests for key methods.  
-Run tests in IntelliJ using JUnit 5.  
+- Displays clear error messages.
 
-Deliverables: All tests passing; test coverage for critical logic.  
+- Logs errors to console gracefully.
 
-Phase 4: Git Version Control (1–2 hours)  
+**Technical Requirements:**
 
-Tasks:  
+- Use try-catch-finally blocks.
 
-Initialize Git repository.  
-Commit changes incrementally.  
-Push to GitHub and create branches for features.  
+- Create custom exception classes in utils.exceptions.
 
-Deliverables: Organized commit history with proper branch merging.  
+- Handle validation centrally via ValidationUtils.
 
-Minimum Requirements Checklist  
+---
 
-JDK 21 and IntelliJ IDEA installed and configured  
-Refactored code from Lab 1 with clean structure  
-At least 3 custom exception classes implemented  
-All exceptions properly handled via try-catch  
-At least 3 JUnit test cases passing successfully  
-Meaningful variable and method names used throughout  
-Methods follow Single Responsibility Principle  
-Git repository initialized and hosted on GitHub  
-At least 3 commits with clear messages  
-Feature branch created and merged successfully  
-Console menu remains functional after errors  
-README updated with refactoring and Git instructions  
-All previous Lab 1 features remain functional  
+### **Epic 3: Testing Fundamentals**
 
-Grading Rubric  
+**US-3.1:** Test Completion Calculation — **As a developer** I want to verify that completion percentages are accurate.
 
-Criteria | Points  
-Code Refactoring & Clean Code | 20  
-Exception Handling | 20  
-Testing & Coverage | 20  
-Git Version Control | 15  
-Functionality & Stability | 15  
-Data Structures & Algorithms (DSA) | 10  
-Total | 100  
+**Acceptance Criteria:**
 
-Submission Requirements  
+- At least 3 JUnit tests for different cases (no tasks, partial, all completed).
 
-Required Deliverables:  
+- All tests pass successfully.
 
-Public GitHub Repository containing:  
-All source code (/src, /test)  
-README.md with setup and Git instructions  
-JUnit test results screenshot (optional)  
+**Technical Requirements:**
 
-Documentation must include:  
+- Add src/test/java/ directory.
 
-Setup and run instructions  
-Feature summary mapped to user stories  
-Class diagram and refactoring explanation  
-Commit log snapshot showing version control usage  
+- Use JUnit 5 annotations (@Test, @BeforeEach).
 
-Submission Link:  
+- Assertions: assertEquals, assertThrows.
 
-Please fill out this form (insert actual form link here)  
+---
 
-Testing the Application  
+### **Epic 4: Git Version Control**
 
-Test Scenario 1: Refactored Project Creation  
+**US-4.1:** Version Code Changes — **As a developer** I want to track changes and refactors using Git so that my code history is maintained.
 
-Run the refactored application  
-Select option 1 (Add Project)  
-Enter valid details for a Software Project  
-Verify constructors and encapsulation work correctly (no direct field access)  
-Confirm ID auto-generates (e.g., PRJ001)  
-Check logs or console output for clean, formatted messages  
+**Acceptance Criteria:**
 
-Test Scenario 2: Add Task with Exception Handling  
+- Repository initialized and linked to GitHub.
 
-Select option 3 (Add Task)  
-Enter invalid project ID (e.g., PRJ999)  
-Verify custom exception displays user-friendly error message  
-Enter valid project ID and task details  
-Confirm successful task creation and no unhandled exceptions  
+- Minimum 3 meaningful commits.
 
-Test Scenario 3: View Projects (After Refactoring)  
+- One feature branch created and merged.
 
-Select option 2 (View Projects)  
-Verify that the refactored structure (using classes and encapsulation) displays data neatly  
-Check tasks associated with each project load properly  
-Confirm no redundant or duplicate display entries  
+**Technical Requirements:**
 
-Test Scenario 4: Calculate Completion Percentage (Refactored Logic)  
+- Run git init, git add ., git commit.
 
-Select option 6 (Calculate Project Completion)  
-Enter valid Project ID  
-Verify accurate completion percentage after code refactoring  
-Check that calculations are performed in a dedicated method/class  
-Confirm clear and readable output formatting  
+- Use branches (e.g., feature/exceptions).
 
-Test Scenario 5: Exception Handling for Invalid Inputs  
+- Merge via git merge.
 
-Enter invalid options (letters for numeric input, negative hours, etc.)  
-Verify input validation prevents crashes  
-Confirm appropriate custom exceptions or fallback messages display  
-Check that retry prompts appear correctly  
+---
 
-Test Scenario 6: Run JUnit Tests  
+### **Epic 5: Menu Error Handling**
 
-Open the JUnit test class in the IDE  
-Run test methods for Project creation, Task addition, and completion calculation  
-Verify all tests pass successfully  
-Confirm proper assertions (e.g., expected vs actual completion %)  
-Check test coverage summary  
+**US-5.1:** Handle Menu Errors — **As a user** I want the menu to remain functional after invalid inputs.
 
-Test Scenario 7: Git Commit and Branch Workflow  
+**Acceptance Criteria:**
 
-Initialize Git repository if not done  
-Make initial commit for the refactored code  
-Create new branch “feature/task-validation”  
-Add validation updates and commit  
-Merge back into main branch without conflicts  
-Verify commit history shows meaningful messages  
+- Program does not crash on invalid entry.
 
-Test Scenario 8: Git Push and Remote Verification  
+- Error message and retry prompt displayed.
 
-Push changes to remote repository (e.g., GitHub)  
-Confirm commits reflect online with correct timestamps  
-Verify README and .gitignore files are included  
-Check that teammates can clone and run project successfully  
+**Technical Requirements:**
 
-Test Scenario 9: Code Cleanliness and Comments Check  
+- Use input validation and try-catch in ConsoleMenu.
 
-Open-source files (Project.java, Task.java, Main.java)  
-Verify consistent indentation and naming conventions  
-Confirm presence of JavaDoc comments on methods  
-Check for absence of dead code or unused imports  
+- Implement looping until valid entry is provided.
+
+---
+
+## **Project Structure**
+
+```
+project-management-system/
+│
+├── src/
+│   ├── Main.java
+│   ├── models/
+│   │   ├── Project.java
+│   │   ├── SoftwareProject.java
+│   │   ├── HardwareProject.java
+│   │   ├── Task.java
+│   │   ├── User.java
+│   │   ├── RegularUser.java
+│   │   ├── AdminUser.java
+│   │   └── StatusReport.java
+│   │
+│   ├── interfaces/
+│   │   └── Completable.java
+│   │
+│   ├── services/
+│   │   ├── ProjectService.java
+│   │   ├── TaskService.java
+│   │   └── ReportService.java
+│   │
+│   └── utils/
+│       ├── ConsoleMenu.java
+│       ├── ValidationUtils.java
+│       └── exceptions/
+│           ├── InvalidInputException.java
+│           ├── TaskNotFoundException.java
+│           └── EmptyProjectException.java
+│
+├── test/
+│   ├── ProjectTests.java
+│   ├── TaskTests.java
+│   └── ValidationTests.java
+│
+├── docs/
+│   ├── class-diagram.png
+│   └── design-decisions.md
+│
+└── README.md
+```
+
+---
+
+## **Implementation Phases**
+---
+
+### **Phase 1: Refactor Existing Code (1–2 hours)**
+
+**Tasks:**
+
+- Review Lab 1 code.
+
+- Apply SOLID and naming best practices.
+
+- Separate concerns into services and utils.
+
+**Deliverables:** Refactored, readable code with consistent structure.
+
+### **Phase 2: Add Exception Handling (2 hours)**
+
+**Tasks:**
+
+- Create custom exception classes.
+
+- Add try-catch logic around input operations.
+
+**Deliverables:** Program handles invalid inputs gracefully without crashing.
+
+### **Phase 3: JUnit Testing (2 hours)**
+
+**Tasks:**
+
+- Write unit tests for key methods.
+
+- Run tests in IntelliJ using JUnit 5.
+
+**Deliverables:** All tests passing; test coverage for critical logic.
+
+### **Phase 4: Git Version Control (1–2 hours)**
+
+**Tasks:**
+
+- Initialize Git repository.
+
+- Commit changes incrementally.
+
+- Push to GitHub and create branches for features.
+
+**Deliverables:** Organized commit history with proper branch merging.
+
+---
+
+## **Minimum Requirements Checklist**
+
+- JDK 21 and IntelliJ IDEA installed and configured
+
+- Refactored code from Lab 1 with clean structure
+
+- At least 3 custom exception classes implemented
+
+- All exceptions properly handled via try-catch
+
+- At least 3 JUnit test cases passing successfully
+
+- Meaningful variable and method names used throughout
+
+- Methods follow Single Responsibility Principle
+
+- Git repository initialized and hosted on GitHub
+
+- At least 3 commits with clear messages
+
+- Feature branch created and merged successfully
+
+- Console menu remains functional after errors
+
+- README updated with refactoring and Git instructions
+
+- All previous Lab 1 features remain functional
+
+---
+
+## **Grading Rubric**
+
+| **Criteria** | **Points** | **Excellent (90–100%)** | **Good (75–89%)** | **Satisfactory (60–74%)** |
+| --- | --- | --- | --- | --- |
+| Code Refactoring & Clean Code | 20 | All classes follow SOLID principles; excellent naming; no duplication; methods concise and readable | Good structure; minor naming issues; few duplications | Some refactoring done; inconsistent style and naming |
+| Exception Handling | 20 | Robust try-catch blocks; custom exceptions implemented; error handling enhances stability | Basic exception handling; covers main failure points | Minimal exception use or only generic catch blocks |
+| Testing & Coverage | 20 | ≥ 3 comprehensive JUnit tests; high coverage; clear assertions; edge cases tested | Some tests working; limited coverage; minor failures | Few or incomplete tests with weak assertions |
+| Git Version Control | 15 | Proper repo structure; multiple commits with messages; branches merged cleanly; frequent pushes | Repo created; few commits; limited branching | Repo missing or poor commit history |
+| Functionality & Stability | 15 | All features functional with graceful error handling; clean UI flow; stable execution | Minor bugs or UI issues; mostly functional | Core features work but frequent errors or crashes |
+| Data Structures & Algorithms (DSA) | 10 | Efficient data organization and retrieval within refactored code; optimized logic in tests; shows understanding of algorithmic efficiency | Proper use of data structures in refactoring; minor inefficiencies | Limited or inefficient data handling; weak algorithmic structure |
+| **Total** | **100** |  |  |  |
+
+---
+
+## **Submission Requirements**
+
+### **Required Deliverables:**
+
+- Public GitHub Repository containing:
+
+  - All source code (/src, /test)
+
+  - README.md with setup and Git instructions
+
+  - JUnit test results screenshot (optional)
+
+- **Documentation** must include:
+
+  - Setup and run instructions
+
+  - Feature summary mapped to user stories
+
+  - Class diagram and refactoring explanation
+
+  - Commit log snapshot showing version control usage
+
+### **Submission Link:**
+
+Please fill out this form (**insert actual form link here**)
+
+---
+
+## **Testing the Application**
+
+### **Test Scenario 1: Refactored Project Creation**
+
+- Run the refactored application
+
+- Select option 1 (Add Project)
+
+- Enter valid details for a Software Project
+
+- Verify constructors and encapsulation work correctly (no direct field access)
+
+- Confirm ID auto-generates (e.g., PRJ001)
+
+- Check logs or console output for clean, formatted messages
+
+### **Test Scenario 2: Add Task with Exception Handling**
+
+- Select option 3 (Add Task)
+
+- Enter invalid project ID (e.g., PRJ999)
+
+- Verify custom exception displays user-friendly error message
+
+- Enter valid project ID and task details
+
+- Confirm successful task creation and no unhandled exceptions
+
+### **Test Scenario 3: View Projects (After Refactoring)**
+
+- Select option 2 (View Projects)
+
+- Verify that the refactored structure (using classes and encapsulation) displays data neatly
+
+- Check tasks associated with each project load properly
+
+- Confirm no redundant or duplicate display entries
+
+### **Test Scenario 4: Calculate Completion Percentage (Refactored Logic)**
+
+- Select option 6 (Calculate Project Completion)
+
+- Enter valid Project ID
+
+- Verify accurate completion percentage after code refactoring
+
+- Check that calculations are performed in a dedicated method/class
+
+- Confirm clear and readable output formatting
+
+### **Test Scenario 5: Exception Handling for Invalid Inputs**
+
+- Enter invalid options (letters for numeric input, negative hours, etc.)
+
+- Verify input validation prevents crashes
+
+- Confirm appropriate custom exceptions or fallback messages display
+
+- Check that retry prompts appear correctly
+
+### **Test Scenario 6: Run JUnit Tests**
+
+- Open the JUnit test class in the IDE
+
+- Run test methods for Project creation, Task addition, and completion calculation
+
+- Verify all tests pass successfully
+
+- Confirm proper assertions (e.g., expected vs actual completion %)
+
+- Check test coverage summary
+
+### **Test Scenario 7: Git Commit and Branch Workflow**
+
+- Initialize Git repository if not done
+
+- Make initial commit for the refactored code
+
+- Create new branch "feature/task-validation"
+
+- Add validation updates and commit
+
+- Merge back into main branch without conflicts
+
+- Verify commit history shows meaningful messages
+
+### **Test Scenario 8: Git Push and Remote Verification**
+
+- Push changes to remote repository (e.g., GitHub)
+
+- Confirm commits reflect online with correct timestamps
+
+- Verify README and .gitignore files are included
+
+- Check that teammates can clone and run project successfully
+
+### **Test Scenario 9: Code Cleanliness and Comments Check**
+
+- Open source files (Project.java, Task.java, Main.java)
+
+- Verify consistent indentation and naming conventions
+
+- Confirm presence of JavaDoc comments on methods
+
+- Check for absence of dead code or unused imports
