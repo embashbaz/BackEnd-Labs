@@ -4,7 +4,7 @@
 ---
 
 ### Project Overview
-
+---
 Build a console-based Bank Account Management System that extends the Week 1 foundation. Users can create accounts, perform transactions (deposit, withdrawal, transfer), handle invalid inputs gracefully, and record all operations in memory using arrays.
 
 This week focuses on:
@@ -19,7 +19,7 @@ Future labs will enhance this version with Java Collections and file-based persi
 ---
 
 ### Project Objectives
-
+---
 By completing this lab, you will be able to:
 
 - Apply clean code principles for readability, maintainability, and scalability
@@ -33,6 +33,7 @@ By completing this lab, you will be able to:
 ---
 
 ### System Features Overview
+---
 
 #### Feature 1: Refactored Account and Transaction Classes
 - Simplify methods with clear names and comments
