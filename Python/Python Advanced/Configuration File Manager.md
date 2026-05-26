@@ -1,12 +1,10 @@
 # Configuration File Manager with Path & Format Handling
 
-**Assessment:** Python Advanced  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Python Advanced    |  **Complexity:** Medium   |  **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -19,7 +17,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Create a **Configuration File Manager** that reads configuration from multiple formats (JSON, CSV, XML), validates structure, converts between formats, and manages config file versions.
 
