@@ -1,14 +1,12 @@
 # Enterprise-Grade URL Shortener Microservice
 
-**Modules Covered:** 5, 6, 7, 8, 9  
-**Framework:** Django 5.0+ + Django REST Framework  
-**Timeline:** 15 Working Days
+**Modules Covered:** 5, 6, 7, 8, 9   |  **Framework:** Django 5.0+ + Django REST Framework    |  **Timeline:** 15 Working Days
 
 ---
 
-## 1. Project Overview
+## Project Overview
 
-### 1.1 Description
+### 1.1 Project Description
 
 Build a production-grade URL shortener (like Bitly/TinyURL) as a scalable microservice.
 
@@ -20,7 +18,7 @@ You will progressively evolve the system:
 - **Module 8** → Performance (Redis + Celery)
 - **Module 9** → Microservices communication
 
-### 1.2 Core Objectives
+### 1.2 Project Objectives
 
 - Clean architecture + REST APIs
 - Advanced database design & ORM usage
@@ -30,7 +28,7 @@ You will progressively evolve the system:
 
 ---
 
-## 2. Database Design (Module 6)
+## Database Design (Module 6)
 
 ### User Model *(extends `AbstractUser`)*
 
@@ -65,7 +63,7 @@ You will progressively evolve the system:
 
 ---
 
-## 3. Module Implementation
+## Module Implementation
 
 ### Module 5: Foundation + Docker
 
@@ -133,7 +131,7 @@ You will progressively evolve the system:
 
 ---
 
-## 4. API Endpoints
+## API Endpoints
 
 ### Auth
 
@@ -167,7 +165,7 @@ GET    /api/v1/analytics/{short_code}/
 
 ---
 
-## 5. Roadmap (15 Days)
+## Roadmap (15 Days)
 
 | Days | Focus | Tasks |
 |---|---|---|
@@ -179,7 +177,7 @@ GET    /api/v1/analytics/{short_code}/
 
 ---
 
-## 6. Tech Stack
+## Tech Stack
 
 | Technology | Role |
 |---|---|
@@ -194,7 +192,7 @@ GET    /api/v1/analytics/{short_code}/
 
 ---
 
-## 7. Submission Requirements
+## Submission Requirements
 
 - GitHub repository
 - `requirements.txt`
