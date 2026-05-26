@@ -1,12 +1,10 @@
 # Resilient Data Importer CLI
 
-**Assessment:** Clean Code, Testing & Git  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Clean Code, Testing & Git   | **Complexity:** Medium   | **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -17,7 +15,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Build a command-line interface (CLI) tool that reliably imports user data from a CSV file into a simulated database (a JSON file). The tool must be resilient to errors such as missing files, malformed CSV rows, and duplicate user entries.
 
