@@ -1,12 +1,10 @@
 # Git-Powered Configuration Management CLI
 
-**Assessment:** Clean Code, Testing & Git  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Clean Code, Testing & Git   |  **Complexity:** Medium   |  **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -18,7 +16,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Create a CLI tool that uses a Git repository as a versioned backend for application configurations. Each version of a configuration file (e.g., a JSON or YAML file) will be a commit. The tool will provide commands to create, update, and rollback configurations, using Git branches and commits to manage the history.
 
