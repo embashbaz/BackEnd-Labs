@@ -1,12 +1,10 @@
 # Concurrent File Processor with Threading & Multiprocessing
 
-**Assessment:** Python Advanced  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Python Advanced    |  **Complexity:** Medium    |  **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -19,7 +17,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Build a **Concurrent File Processor** that downloads files from URLs, processes them (image resize, text analysis, data conversion), and saves results.
 
