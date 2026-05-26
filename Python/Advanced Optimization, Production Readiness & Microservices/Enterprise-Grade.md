@@ -1,12 +1,10 @@
 # Enterprise-Grade URL Shortener Microservice
 
-**Modules Covered:** 5, 6, 7, 8 & 9 Integration  
-**Framework:** Django 5.0+ with Django REST Framework (DRF)  
-**Timeline:** 15 Working Days
+**Modules Covered:** 5, 6, 7, 8 & 9 Integration   | **Framework:** Django 5.0+ with Django REST Framework (DRF)    | **Timeline:** 15 Working Days
 
 ---
 
-## 1. Project Overview
+##  Project Overview
 
 ### 1.1 Project Description
 
@@ -27,7 +25,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 
 ---
 
-## 2. Database Schema
+##  Database Schema
 
 ### A. User Model *(extends `AbstractUser`)*
 
@@ -62,7 +60,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 
 ---
 
-## 3. Module 8 Implementation
+##  Module 8 Implementation
 
 ### Goal
 
@@ -103,7 +101,7 @@ track_click_task.delay(url_id, ip_address, user_agent)
 
 ---
 
-## 4. Module 9 Implementation
+## Module 9 Implementation
 
 ### Goal
 
@@ -136,7 +134,7 @@ Create a **separate Django microservice** for the Preview Service. The main app 
 
 ---
 
-## 5. API Endpoint Specifications
+## API Endpoint Specifications
 
 ### Authentication
 
@@ -170,7 +168,7 @@ Create a **separate Django microservice** for the Preview Service. The main app 
 
 ---
 
-## 6. Project Roadmap & Milestones
+## Project Roadmap & Milestones
 
 | Phase | Days | Module | Deliverables |
 |---|---|---|---|
@@ -182,7 +180,7 @@ Create a **separate Django microservice** for the Preview Service. The main app 
 
 ---
 
-## 7. Technical Stack
+## Technical Stack
 
 | Category | Technology |
 |---|---|
@@ -198,7 +196,7 @@ Create a **separate Django microservice** for the Preview Service. The main app 
 
 ---
 
-## 8. Submission Guidelines
+## Submission Guidelines
 
 **GitHub Repository** must include:
 - `.gitignore`
