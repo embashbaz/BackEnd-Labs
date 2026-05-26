@@ -1,12 +1,11 @@
 # Enterprise-Grade URL Shortener Microservice
 
-**Modules Covered:** 5, 6, 7, 8 & 9 Integration  
-**Framework:** Django 5.0+ with Django REST Framework (DRF)  
+**Modules Covered:** 5, 6, 7, 8 & 9 Integration    |  **Framework:** Django 5.0+ with Django REST Framework (DRF)    |  
 **Timeline:** 15 Working Days
 
 ---
 
-## 1. Project Overview
+## Project Overview
 
 ### 1.1 Project Description
 
@@ -18,7 +17,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 - **Module 8** → High-performance background tasks
 - **Module 9** → Distributed service communication
 
-### 1.2 Core Project Objectives
+### 1.2 Project Objectives
 
 | Module | Focus | Skills |
 |---|---|---|
@@ -30,7 +29,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 
 ---
 
-## 2. System Architecture & Data Design
+## System Architecture & Data Design
 
 ### 2.1 Database Schema
 
@@ -70,7 +69,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 
 ---
 
-## 3. Module 5 Implementation
+## Module 5 Implementation
 
 ### Goal
 
@@ -125,7 +124,7 @@ Integrate `drf-yasg` or `drf-spectacular` to auto-generate Swagger/OpenAPI docs.
 
 ---
 
-## 4. API Endpoint Specifications
+## API Endpoint Specifications
 
 ### Authentication
 
@@ -159,7 +158,7 @@ Integrate `drf-yasg` or `drf-spectacular` to auto-generate Swagger/OpenAPI docs.
 
 ---
 
-## 5. Project Roadmap & Milestones
+## Project Roadmap & Milestones
 
 | Phase | Days | Module | Deliverables |
 |---|---|---|---|
@@ -171,7 +170,7 @@ Integrate `drf-yasg` or `drf-spectacular` to auto-generate Swagger/OpenAPI docs.
 
 ---
 
-## 6. Technical Stack
+## Technical Stack
 
 | Category | Technology |
 |---|---|
@@ -187,7 +186,7 @@ Integrate `drf-yasg` or `drf-spectacular` to auto-generate Swagger/OpenAPI docs.
 
 ---
 
-## 7. Submission Guidelines
+## Submission Guidelines
 
 **GitHub Repository** must include:
 - `.gitignore`
