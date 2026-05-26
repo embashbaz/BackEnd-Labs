@@ -2,7 +2,9 @@
 
 **Modules covered:** 5, 6, 7, 8, and 9 | **Framework:** Django 5.0+ with DRF | **Timeline:** 15 working days
 
-## **1. Project overview**
+---
+
+## **Project overview**
 
 You will build a production-grade URL shortening service similar to Bitly or TinyURL, designed as a highly scalable microservice. Starting from a clean Dockerized foundation, you will progressively evolve it into a complex system handling relational data, advanced security, high-performance background tasks, and distributed service communication.
 
@@ -18,7 +20,7 @@ You will build a production-grade URL shortening service similar to Bitly or Tin
 
 ---
 
-### **2. Database schema (Module 6 focus)**
+## **Database schema (Module 6 focus)**
 
 #### **A. User model**
 
@@ -67,15 +69,18 @@ Categorization for URLs. Field: name (CharField, unique). Relationship: Many-to-
 
 ---
 
-### **3. Technical implementation by module**
+## **Technical implementation by module**
 
-#### **Module 5: Fundamentals, architecture, and containerization**
+
+## **Module 5: Fundamentals, architecture, and containerization**
+
+---
 
 **Goal:** Establish the project foundation, Docker environment, and a Minimum Viable Product (MVP).
 
 In this phase the focus is purely on infrastructure and core logic — no users or analytics yet. You will create a clean application that accepts a long URL, generates a unique short code, and redirects users, then containerize it so it runs identically on every machine.
 
-**Project structure:**
+### **Project structure:**
 
 - Initialize a Django project using a modular structure (separate apps for core, shortener, and api)
 
@@ -103,13 +108,16 @@ In this phase the focus is purely on infrastructure and core logic — no users 
 
 **Documentation:** Integrate drf-yasg or drf-spectacular to auto-generate Swagger/OpenAPI docs.
 
-#### **Module 6: ORM and data access layer**
+
+## **Module 6: ORM and data access layer**
+
+---
 
 **Goal:** Expand the data model to support users, relationships, and deep analytics.
 
 Now that the core works, you will make it smart by adding user ownership, tagging, and analytics. The focus is on fetching data efficiently without overloading the database.
 
-**Advanced modeling:**
+ **Advanced modeling:**
 
 - Add is_premium and tier to User; add owner, click_count, is_active, and expires_at to URL
 
@@ -117,7 +125,7 @@ Now that the core works, you will make it smart by adding user ownership, taggin
 
 - Implement Many-to-Many Tag relationships (e.g., "Marketing", "Social")
 
-**Database migrations:**
+ **Database migrations:**
 
 - Manage schema changes using Django migrations
 
@@ -125,7 +133,7 @@ Now that the core works, you will make it smart by adding user ownership, taggin
 
 **Custom managers and QuerySets:** Implement URLManager with methods active_urls(), expired_urls(), and popular_urls().
 
-**Query optimization:**
+ **Query optimization:**
 
 - N+1 problem: use select_related for URLs with owners; use prefetch_related for URLs with tags
 
@@ -133,7 +141,10 @@ Now that the core works, you will make it smart by adding user ownership, taggin
 
 - Use annotate() for complex stats (e.g., total clicks per country) — calculate in the database, not Python
 
-#### **Module 7: Authentication and authorization**
+
+## **Module 7: Authentication and authorization**
+
+---
 
 **Goal:** Secure the application and implement business rules based on user roles.
 
@@ -161,8 +172,11 @@ You will lock down the API so only registered users can create links, and implem
 - Rate limiting on the Login endpoint (e.g., 5 attempts per minute)
 
 - Secure password storage (Django defaults) and sanitized URL inputs
+- 
 
-#### **Module 8: Advanced optimization and production readiness**
+## **Module 8: Advanced optimization and production readiness**
+
+---
 
 **Goal:** Prepare the system for high traffic using caching and background workers.
 
@@ -185,8 +199,11 @@ In a real URL shortener, writing to the database on every click is too slow. Thi
 - Structured logging (JSON format preferred) for all 500 errors and security warnings
 
 - /health endpoint to check if DB and Redis are reachable
+  
 
-#### **Module 9: Microservices essentials**
+## **Module 9: Microservices essentials**
+
+---
 
 **Goal:** Simulate a distributed architecture and external service integration.
 
@@ -214,7 +231,7 @@ You will implement a URL Preview feature that fetches the title, description, an
 
 ---
 
-### **4. API endpoint specifications**
+## **API endpoint specifications**
 
 #### **Authentication**
 
@@ -248,7 +265,7 @@ You will implement a URL Preview feature that fetches the title, description, an
 
 ---
 
-### **5. Project roadmap and milestones**
+## **Project roadmap and milestones**
 
 | **Phase** | **Days** | **Module** | **Key deliverables** |
 | --- | --- | --- | --- |
@@ -260,7 +277,7 @@ You will implement a URL Preview feature that fetches the title, description, an
 
 ---
 
-### **6. Technical stack requirements**
+## **Technical stack requirements**
 
 | **Category** | **Technology** |
 | --- | --- |
@@ -276,7 +293,7 @@ You will implement a URL Preview feature that fetches the title, description, an
 
 ---
 
-### **7. Submission guidelines**
+## **Submission guidelines**
 
 - **GitHub repository** — must include a clear .gitignore, requirements.txt, and atomic commits
 
