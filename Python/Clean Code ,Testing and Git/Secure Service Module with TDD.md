@@ -1,12 +1,10 @@
 # Secure Service Module with TDD
 
-**Assessment:** Clean Code, Testing & Git  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Clean Code, Testing & Git    |  **Complexity:** Medium    |  **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -18,7 +16,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Develop a secure, standalone **User Authentication Service Module**. This module will not be a full web application but a reusable library responsible for user registration and credential verification. It must handle password hashing, enforce password policies, and prevent common errors like duplicate registrations.
 
