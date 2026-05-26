@@ -3,7 +3,7 @@
 ---
 **Module:** 10 | **Type:** Capstone lab | **Framework:** FastAPI + Python
 
-## **1. Project overview**
+## **Project overview**
 ---
 
 LibraryMind is an AI-powered backend service for a public library. The system allows patrons to:
@@ -38,7 +38,7 @@ This capstone exercises every core skill from the training programme: multi-prov
 
 ---
 
-### **2. Learning outcomes**
+## **Learning outcomes**
 
 By completing this lab you will demonstrate the ability to:
 
@@ -60,7 +60,7 @@ By completing this lab you will demonstrate the ability to:
 
 ---
 
-### **3. System architecture**
+## **System architecture**
 
 LibraryMind follows a layered architecture that separates concerns and makes each component independently testable.
 
@@ -121,7 +121,7 @@ When a patron asks "Recommend a book about space exploration":
 
 ---
 
-### **4. Part 0: Environment setup**
+## **Part 0: Environment setup**
 
 Set up your development environment with all necessary tools and dependencies.
 
@@ -153,7 +153,7 @@ Set up your development environment with all necessary tools and dependencies.
 
 ---
 
-### **5. Part 1: Multi-provider AI layer**
+## **Part 1: Multi-provider AI layer**
 
 Build an AI provider abstraction layer wrapping OpenAI, Claude, and Google Gemini behind a single interface, with automatic fallback.
 
@@ -183,7 +183,7 @@ Build an AI provider abstraction layer wrapping OpenAI, Claude, and Google Gemin
 
 ---
 
-### **6. Part 2: Core infrastructure**
+## **Part 2: Core infrastructure**
 
 Implement three shared infrastructure components used by all services.
 
@@ -231,7 +231,7 @@ Implement three shared infrastructure components used by all services.
 
 ---
 
-### **7. Part 3: Knowledge base — embeddings and vector store**
+## **Part 3: Knowledge base — embeddings and vector store**
 
 Create a sample library catalogue, generate embeddings, store them in a vector database, and build a semantic search method.
 
@@ -323,7 +323,7 @@ Design your RAG system prompt carefully. Instruct the model to ground answers in
 
 ---
 
-### **9. Part 5: AI librarian chatbot**
+## **Part 5: AI librarian chatbot**
 
 Build a multi-turn conversational chatbot that lets patrons have a natural dialogue with an AI librarian, using RAG to ground answers in the catalogue.
 
@@ -355,7 +355,7 @@ Build a multi-turn conversational chatbot that lets patrons have a natural dialo
 
 ---
 
-### **10. Part 6: Classification and summarization**
+## **Part 6: Classification and summarization**
 
 **Task A: Ticket classifier**
 
@@ -399,7 +399,7 @@ Accepts a list of book reviews and produces a structured analysis.
 
 ---
 
-### **11. Part 7: REST API**
+## **Part 7: REST API**
 
 Expose all services through a FastAPI application with clean, documented HTTP endpoints.
 
@@ -442,7 +442,7 @@ Expose all services through a FastAPI application with clean, documented HTTP en
 
 ---
 
-### **12. Part 8: Testing and validation**
+## **Part 8: Testing and validation**
 
 Write a smoke test script and manually validate every component against the scenarios below.
 
@@ -461,7 +461,7 @@ Write a smoke test script and manually validate every component against the scen
 
 ---
 
-### **13. Submission requirements**
+## **Submission requirements**
 
 **What to submit:**
 
@@ -486,7 +486,7 @@ Write a smoke test script and manually validate every component against the scen
 
 ---
 
-### **14. Tips and common pitfalls**
+## **Tips and common pitfalls**
 
 **General advice:**
 
