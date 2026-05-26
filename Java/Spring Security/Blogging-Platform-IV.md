@@ -2,7 +2,8 @@
 
 ---
 
-### Project Overview
+## Project Overview
+---
 
 This phase of the Blogging Platform emphasizes building secure, scalable, and production-ready web backends that can safely handle authentication, authorization, and cross-origin requests. Learners will apply Spring Security concepts to secure REST and GraphQL APIs using JWT-based authentication, Google OAuth2 login, and Role-Based Access Control (RBAC).
 
@@ -10,7 +11,8 @@ Additionally, this phase explores security-related Data Structures and Algorithm
 
 ---
 
-### Project Objectives
+## Project Objectives
+---
 
 By the end of this project, learners will be able to:
 
@@ -22,7 +24,8 @@ By the end of this project, learners will be able to:
 
 ---
 
-### Epics and User Stories
+## Epics and User Stories
+---
 
 #### Epic 1: Security Configuration and Access Policies
 
@@ -133,7 +136,7 @@ By the end of this project, learners will be able to:
 
 ---
 
-### Technical Requirements
+## Technical Requirements
 
 | Area | Description |
 |---|---|
@@ -150,7 +153,7 @@ By the end of this project, learners will be able to:
 
 ---
 
-### Deliverables
+## Deliverables
 
 | Deliverable | Description |
 |---|---|
@@ -165,7 +168,7 @@ By the end of this project, learners will be able to:
 
 ---
 
-### Evaluation Criteria
+## Evaluation Criteria
 
 | Category | Description | Points |
 |---|---|---|
