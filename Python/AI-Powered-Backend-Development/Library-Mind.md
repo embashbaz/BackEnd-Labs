@@ -1,10 +1,11 @@
 # **Library Mind - intelligent library assistant**
 
----
+
 **Module:** 10 | **Type:** Capstone lab | **Framework:** FastAPI + Python
 
-## **Project overview**
 ---
+
+## **Project overview**
 
 LibraryMind is an AI-powered backend service for a public library. The system allows patrons to:
 
