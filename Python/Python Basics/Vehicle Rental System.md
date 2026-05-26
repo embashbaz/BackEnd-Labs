@@ -1,12 +1,10 @@
 # Vehicle Rental System
 
-**Topic:** Python Basics  
-**Complexity:** Medium  
-**Estimated Time:** 6–8 hours
+**Topic:** Python Basics    |  **Complexity:** Medium    |  **Estimated Time:** 6–8 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -18,7 +16,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Develop a **Vehicle Rental System** where users can rent cars, bikes, and trucks.
 
