@@ -1,12 +1,10 @@
 # Multi-Stage Data Processing Pipeline
 
-**Assessment:** Clean Code, Testing & Git  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Clean Code, Testing & Git   | **Complexity:** Medium   | **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -18,7 +16,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Create a data processing pipeline that takes raw text, cleans it, analyzes its sentiment (simulated), and stores the structured result in a real database. Each stage of the pipeline (e.g., cleaner, analyzer, storer) must be a distinct, independently testable component.
 
