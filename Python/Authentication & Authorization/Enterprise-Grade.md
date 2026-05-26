@@ -1,13 +1,11 @@
 # Enterprise-Grade URL Shortener Microservice
 
 
-**Modules Covered:** 5, 6, 7, 8 & 9 Integration  
-**Framework:** Django 5.0+ with Django REST Framework (DRF)  
-**Timeline:** 15 Working Days
+**Modules Covered:** 5, 6, 7, 8 & 9 Integration   |  **Framework:** Django 5.0+ with Django REST Framework (DRF)   |  **Timeline:** 15 Working Days
 
 ---
 
-## 1. Project Overview
+## Project Overview
 
 ### 1.1 Project Description
 
@@ -30,7 +28,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 
 ---
 
-## 2. Database Schema
+## Database Schema
 
 ### A. User Model *(extends `AbstractUser`)*
 
@@ -65,7 +63,7 @@ Build a production-grade URL shortening service (like Bitly or TinyURL) as a sca
 
 ---
 
-## 3. Module 7 Implementation
+## Module 7 Implementation
 
 ### Goal
 
@@ -102,7 +100,7 @@ Install `djangorestframework-simplejwt` and implement endpoints:
 
 ---
 
-## 4. API Endpoint Specifications
+## API Endpoint Specifications
 
 ### Authentication
 
@@ -136,7 +134,7 @@ Install `djangorestframework-simplejwt` and implement endpoints:
 
 ---
 
-## 5. Project Roadmap & Milestones
+## Project Roadmap & Milestones
 
 | Phase | Days | Module | Deliverables |
 |---|---|---|---|
@@ -148,7 +146,7 @@ Install `djangorestframework-simplejwt` and implement endpoints:
 
 ---
 
-## 6. Technical Stack
+## Technical Stack
 
 | Category | Technology |
 |---|---|
@@ -164,7 +162,7 @@ Install `djangorestframework-simplejwt` and implement endpoints:
 
 ---
 
-## 7. Submission Guidelines
+## Submission Guidelines
 
 **GitHub Repository** must include:
 - `.gitignore`
