@@ -1,12 +1,10 @@
 # Student Grade Analytics Tool with Advanced Collections
 
-**Assessment:** Python Advanced  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Python Advanced    |  **Complexity:** Medium    |  **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -19,7 +17,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Build a **Student Grade Analytics Tool** that processes student records from CSV files, calculates statistics (averages, distributions, rankings), and generates reports in JSON format.
 
