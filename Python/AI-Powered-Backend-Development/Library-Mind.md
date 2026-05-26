@@ -38,7 +38,7 @@ This capstone exercises every core skill from the training programme: multi-prov
 
 ---
 
-## **Learning outcomes**
+## **Project outcomes**
 
 By completing this lab you will demonstrate the ability to:
 
