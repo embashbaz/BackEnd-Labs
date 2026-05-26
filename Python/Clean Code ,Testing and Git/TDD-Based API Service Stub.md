@@ -1,12 +1,10 @@
 # TDD-Based API Service Stub
 
-**Assessment:** Clean Code, Testing & Git  
-**Complexity:** Medium  
-**Estimated Time:** 6–10 hours
+**Assessment:** Clean Code, Testing & Git    |  **Complexity:** Medium    |  **Estimated Time:** 6–10 hours
 
 ---
 
-## Objectives
+## Project Objectives
 
 By completing this lab, learners should be able to:
 
@@ -18,7 +16,7 @@ By completing this lab, learners should be able to:
 
 ---
 
-## Description
+## Project Description
 
 Build a mock "Weather API" service module following a rigorous TDD methodology. The service will not connect to a real external API but will simulate one, returning predictable data for known inputs and specific errors for invalid ones.
 
