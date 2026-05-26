@@ -2,7 +2,7 @@
 
 ---
 
-## Objective
+## Project Objective
 
 This lab evaluates your ability to securely containerize a Node.js or Java application and automate the build and deployment of the container image to Amazon ECR using GitHub Actions with OIDC-based authentication and least-privilege IAM design.
 
