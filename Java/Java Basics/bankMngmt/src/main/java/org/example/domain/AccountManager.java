@@ -3,6 +3,8 @@ package org.example.domain;
 import org.example.BoundedList;
 import org.example.model.Account;
 
+import static java.lang.String.format;
+
 
 public class AccountManager {
     private BoundedList<Account> accounts = new BoundedList<>(50);
@@ -20,10 +22,24 @@ public class AccountManager {
     }
 
     public void viewAllAccounts(){
-        System.out.printf("""
-                
-                
-                """);
+        String HEADER = """
+    ACC NO   | CUSTOMER NAME     | TYPE              | BALANCE      | STATUS
+    ──────────────────────────────────────────────────────────────────────────
+    """;
+        System.out.println(HEADER);
+        for(Account acc:accounts){
+            System.out.print(format("%-8s | %-17s | %-17s | $%,12.2f | %-6s%n",
+                    acc.getAccountNumber(),
+                    acc.getCustomer().getName(),
+                    acc.getAccountType(),
+                    acc.getBalance(),
+                    acc.getStatus()));
+            System.out.print(format("         | %s%n", acc.displayAccountDetails()));
+            System.out.print("─".repeat(74));
+        }
+        System.out.println( "Total Accounts: " + accountCount);
+        System.out.printf("Total Bank Balance: $%,.2f%n", getTotalBalance());
+
     }
 
     double getTotalBalance(){

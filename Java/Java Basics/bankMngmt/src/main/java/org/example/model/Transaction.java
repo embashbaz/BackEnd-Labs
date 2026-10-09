@@ -1,11 +1,14 @@
 package org.example.model;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
     private String transactionID, accountNumber, type, timestamp;
     private double amount, balanceAfter;
 
     private static int transactionCounter = 0;
+
+    public static final String ROW_FMT = "%-8s | %-17s | %-17s | %-13s | $%,12.2f%n";
 
     public Transaction(
             String accountNumber,
@@ -18,12 +21,19 @@ public class Transaction {
             this.balanceAfter = balanceAfter;
             this.type = type;
             this.transactionID = String.format("TXN%03d", ++transactionCounter);
-            this.timestamp = LocalDateTime.now().toString();
+            this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a"));
     }
 
 
-    void displayTransactionDetails(){
-        System.out.printf("");
+    public void displayTransactionDetails(){
+        String signedAmount = (type.equals("DEPOSIT") ? "+" : "-")
+                + String.format("$%,.2f", amount);
+        System.out.print(String.format(ROW_FMT,
+                getTransactionID(),
+                getTimestamp(),
+                getType(),
+                signedAmount,
+                getBalanceAfter()));
     }
 
     public double getBalanceAfter() {

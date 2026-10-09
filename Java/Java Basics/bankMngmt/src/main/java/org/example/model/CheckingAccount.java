@@ -30,9 +30,10 @@ public class CheckingAccount extends  Account{
 
     @Override
     public String displayAccountDetails() {
-         return """
-                
-                """;
+        String fee = (monthlyFee == 0)
+                ? "$0.00 (WAIVED - Premium Customer)"
+                : String.format("$%.2f", monthlyFee);
+        return String.format("Overdraft Limit: $%,.2f | Monthly Fee: %s", overdraftLimit, fee);
     }
 
     @Override

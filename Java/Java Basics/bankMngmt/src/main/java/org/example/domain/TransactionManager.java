@@ -25,6 +25,30 @@ public class TransactionManager {
         return transactions.size();
     }
 
+    public void showAllTransactions(String accountNumber){
+        var transaction = viewTransactions(accountNumber);
+        String HEADER = """
+    TXN ID   | DATE/TIME     | TYPE              | AMOUNT      | BALANCE
+    ──────────────────────────────────────────────────────────────────────────
+    """;
+        System.out.println(HEADER);
+        if (transaction.isEmpty()) {
+            System.out.println("No transactions recorded for this account.");
+            return;
+        }
+        for(Transaction txn:transaction){
+            txn.displayTransactionDetails();
+            System.out.println("─".repeat(74));
+        }
+        double deps = calculateTotalDeposits(accountNumber);
+        double wds  = calculateTotalWithdrawals(accountNumber);
+        double net  = deps - wds;
+        System.out.printf("Total Transactions: %d%n", transaction.size());
+        System.out.printf("Total Deposits:     $%,.2f%n", deps);
+        System.out.printf("Total Withdrawals:  $%,.2f%n", wds);
+        System.out.printf("Net Change:         %s$%,.2f%n", net >= 0 ? "+" : "-", Math.abs(net));
+    }
+
     public List<Transaction> viewTransactions(String accountNumber){
         return transactions.stream().filter(e -> e.getAccountNumber().equals(accountNumber)).toList().reversed();
     }

@@ -25,9 +25,7 @@ public class SavingsAccount extends  Account{
 
     @Override
     public String displayAccountDetails() {
-        return """
-                
-                """;
+        return "Interest Rate: 3.5% | Min Balance: $500.00";
     }
 
     @Override
