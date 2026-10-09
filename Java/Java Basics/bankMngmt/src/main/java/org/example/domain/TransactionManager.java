@@ -1,7 +1,6 @@
 package org.example.domain;
 
-import org.example.BoundedList;
-import org.example.model.Account;
+import org.example.utils.BoundedList;
 import org.example.model.Transaction;
 
 import java.util.List;

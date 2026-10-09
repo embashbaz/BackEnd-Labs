@@ -15,7 +15,7 @@ abstract public class Customer {
 
     abstract String displayCustomerDetails();
 
-    abstract String getCustomerType();
+    public abstract String getCustomerType();
 
     public String getCustomerId() {
         return customerId;

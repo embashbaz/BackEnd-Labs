@@ -1,6 +1,6 @@
 package org.example.domain;
 
-import org.example.BoundedList;
+import org.example.utils.BoundedList;
 import org.example.model.Account;
 
 import static java.lang.String.format;
@@ -35,7 +35,7 @@ public class AccountManager {
                     acc.getBalance(),
                     acc.getStatus()));
             System.out.print(format("         | %s%n", acc.displayAccountDetails()));
-            System.out.print("─".repeat(74));
+            System.out.println("─".repeat(74));
         }
         System.out.println( "Total Accounts: " + accountCount);
         System.out.printf("Total Bank Balance: $%,.2f%n", getTotalBalance());

@@ -4,8 +4,8 @@ public class PremiumCustomer extends  Customer{
 
     private  double minimumBalance = 10000;
 
-    PremiumCustomer(
-            String name,String contact,String address, int age
+    public PremiumCustomer(
+            String name, String contact, String address, int age
     ){
         super(name, contact, address, age);
     }
@@ -20,7 +20,7 @@ public class PremiumCustomer extends  Customer{
     }
 
     @Override
-    String getCustomerType() {
+    public String getCustomerType() {
         return "Premium";
     }
 

@@ -13,7 +13,7 @@ public class RegularCustomer extends Customer{
     }
 
     @Override
-    String getCustomerType() {
+    public String getCustomerType() {
         return "Regular";
     }
 }
