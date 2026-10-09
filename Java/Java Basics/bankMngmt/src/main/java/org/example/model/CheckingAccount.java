@@ -23,7 +23,7 @@ public class CheckingAccount extends  Account{
     @Override
     public double withdraw(double amount) {
         if((getBalance() - amount) < (0 - overdraftLimit)){
-            throw new RuntimeException("Withdrawing this amount will ...");
+            throw new RuntimeException("You can not withdraw beyond the allowed limit");
         }
         return  super.withdraw(amount);
     }

@@ -3,9 +3,6 @@ package org.example;
 import org.example.domain.AccountManager;
 import org.example.domain.TransactionManager;
 import org.example.model.*;
-import org.example.utils.InputParser;
-
-import java.util.Scanner;
 
 import static org.example.utils.InputParser.*;
 
@@ -13,7 +10,6 @@ import static org.example.utils.InputParser.*;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    private static final Scanner sc = new Scanner(System.in);
     private static final AccountManager accounts = new AccountManager();
     private static final TransactionManager txns = new TransactionManager();
 
@@ -172,13 +168,14 @@ public class Main {
 
         System.out.println();
         double amount = readDouble("Enter amount: $");
-
+        if (amount <= 0) { System.out.println("Amount must be positive."); return; }
         double previous = account.getBalance();
         double projected = type.equals("DEPOSIT") ? previous + amount : previous - amount;
 
         System.out.println();
         System.out.println("TRANSACTION CONFIRMATION");
         System.out.println("─".repeat(45));
+        System.out.printf("Transaction ID: %s%n", Transaction.nextTransactionId());
         System.out.printf("Account: %s%n", account.getAccountNumber());
         System.out.printf("Type: %s%n", type);
         System.out.printf("Amount: $%,.2f%n", amount);

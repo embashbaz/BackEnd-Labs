@@ -8,7 +8,7 @@ public class RegularCustomer extends Customer{
         super(name, contact, address, age);
     }
     @Override
-    String displayCustomerDetails() {
+    public String displayCustomerDetails() {
         return "";
     }
 

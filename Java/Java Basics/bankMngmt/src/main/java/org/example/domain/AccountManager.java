@@ -18,14 +18,15 @@ public class AccountManager {
     }
 
     public Account findAccount(String accountNumber){
-        return accounts.stream().filter(e -> e.getAccountNumber().equals(accountNumber)).findFirst().orElse(null);
+        return accounts.stream().filter(e -> e.getAccountNumber().equalsIgnoreCase(accountNumber)).findFirst().orElse(null);
     }
 
     public void viewAllAccounts(){
-        String HEADER = """
-    ACC NO   | CUSTOMER NAME     | TYPE              | BALANCE      | STATUS
-    ──────────────────────────────────────────────────────────────────────────
-    """;
+        String HEADER = String.format(
+                "%-8s | %-17s | %-17s | %-13s | %-6s%n" +
+                        "%s%n",
+                "ACC NO", "CUSTOMER NAME", "TYPE", "BALANCE", "STATUS",
+                "─".repeat(74));
         System.out.println(HEADER);
         for(Account acc:accounts){
             System.out.print(format("%-8s | %-17s | %-17s | $%,12.2f | %-6s%n",

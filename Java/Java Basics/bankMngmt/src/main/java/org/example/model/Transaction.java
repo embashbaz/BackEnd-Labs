@@ -36,6 +36,10 @@ public class Transaction {
                 getBalanceAfter()));
     }
 
+    public static String nextTransactionId() {
+        return String.format("TXN%03d", transactionCounter + 1);
+    }
+
     public double getBalanceAfter() {
         return balanceAfter;
     }

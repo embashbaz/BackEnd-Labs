@@ -15,7 +15,7 @@ public class PremiumCustomer extends  Customer{
     }
 
     @Override
-    String displayCustomerDetails() {
+    public String displayCustomerDetails() {
         return "";
     }
 

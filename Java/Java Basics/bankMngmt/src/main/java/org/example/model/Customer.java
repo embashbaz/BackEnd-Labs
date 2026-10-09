@@ -13,7 +13,7 @@ abstract public class Customer {
         this.age = age;
     }
 
-    abstract String displayCustomerDetails();
+    public abstract String displayCustomerDetails();
 
     public abstract String getCustomerType();
 
