@@ -4,14 +4,19 @@ public class SavingsAccount extends  Account{
     private  double interestRate;
     private  double minimumBalance;
 
-    SavingsAccount(
+    public SavingsAccount(
+            Customer customer,
+            double balance,
+            String status
     ){
+        super(customer, balance, status);
+
          interestRate = 3.5;
          minimumBalance = 500;
     }
 
     @Override
-    double withdraw(double amount) {
+    public double withdraw(double amount) {
         if((getBalance() - amount) < minimumBalance){
             throw new RuntimeException("Withdrawing this amount will ...");
         }
@@ -19,18 +24,18 @@ public class SavingsAccount extends  Account{
     }
 
     @Override
-    String displayAccountDetails() {
+    public String displayAccountDetails() {
         return """
                 
                 """;
     }
 
     @Override
-    String getAccountType() {
+    public String getAccountType() {
         return "Savings";
     }
 
-    double calculateInterest(){
+    public double calculateInterest(){
         return this.getBalance() * (interestRate / 100);
     }
 }

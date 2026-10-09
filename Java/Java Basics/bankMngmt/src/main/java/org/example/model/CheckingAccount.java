@@ -1,12 +1,16 @@
 package org.example.model;
 
 public class CheckingAccount extends  Account{
-    private double overdraftLimit = 1000;
-    private float monthlyFee = 10;
+    private double overdraftLimit ;
+    private double monthlyFee;
 
 
-    CheckingAccount(){
-        super();
+    public CheckingAccount(
+            Customer customer,
+            double balance,
+            String status
+    ){
+        super(customer, balance, status);
         overdraftLimit = 1000;
         if(getCustomer() instanceof PremiumCustomer){
             monthlyFee = 0;
@@ -17,7 +21,7 @@ public class CheckingAccount extends  Account{
 
 
     @Override
-    double withdraw(double amount) {
+    public double withdraw(double amount) {
         if((getBalance() - amount) < (0 - overdraftLimit)){
             throw new RuntimeException("Withdrawing this amount will ...");
         }
@@ -25,18 +29,18 @@ public class CheckingAccount extends  Account{
     }
 
     @Override
-    String displayAccountDetails() {
+    public String displayAccountDetails() {
          return """
                 
                 """;
     }
 
     @Override
-    String getAccountType() {
+   public String getAccountType() {
         return "Checking";
     }
 
-    void applyMonthlyFee(){
+    public void applyMonthlyFee(){
         setBalance(getBalance() - monthlyFee);
     }
 }

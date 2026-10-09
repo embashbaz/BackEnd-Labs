@@ -3,7 +3,15 @@ package org.example.model;
 abstract public class Customer {
     private String customerId, name, contact, address;
     private int age;
-    static int customerCounter;
+    static int customerCounter = 0;
+
+    public Customer(String name, String contact, String address, int age) {
+        this.customerId = String.format("CUS%03d", ++customerCounter);
+        this.name = name;
+        this.contact = contact;
+        this.address = address;
+        this.age = age;
+    }
 
     abstract String displayCustomerDetails();
 

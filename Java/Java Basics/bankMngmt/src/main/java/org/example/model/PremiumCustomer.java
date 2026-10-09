@@ -2,15 +2,12 @@ package org.example.model;
 
 public class PremiumCustomer extends  Customer{
 
-    private  int minimumBalance = 10000;
+    private  double minimumBalance = 10000;
 
     PremiumCustomer(
             String name,String contact,String address, int age
     ){
-        super.setAddress(address);
-        super.setName(name);
-        super.setContact(contact);
-        super.setAge(age);
+        super(name, contact, address, age);
     }
 
     boolean hasWaivedFees(){
@@ -27,11 +24,11 @@ public class PremiumCustomer extends  Customer{
         return "Premium";
     }
 
-    public int getMinimumBalance() {
+    public double getMinimumBalance() {
         return minimumBalance;
     }
 
-    public void setMinimumBalance(int minimumBalance) {
+    public void setMinimumBalance(double minimumBalance) {
         this.minimumBalance = minimumBalance;
     }
 }

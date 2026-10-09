@@ -2,13 +2,10 @@ package org.example.model;
 
 public class RegularCustomer extends Customer{
 
-    RegularCustomer(
+    public RegularCustomer(
             String name,String contact,String address, int age
     ){
-        super.setAddress(address);
-        super.setName(name);
-        super.setContact(contact);
-        super.setAge(age);
+        super(name, contact, address, age);
     }
     @Override
     String displayCustomerDetails() {

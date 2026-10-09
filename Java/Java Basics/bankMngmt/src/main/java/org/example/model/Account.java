@@ -1,28 +1,40 @@
 package org.example.model;
 
-abstract public class Account {
+import java.util.Objects;
+
+abstract public class Account implements Transactable{
 
 
     private String accountNumber;
     private Customer customer;
     private double balance;
     private String status;
-    Account(){
-
+    static int accountCounter = 0;
+    Account(
+            Customer customer,
+            double balance,
+            String status
+    ){
+        this.accountNumber = String.format("ACC%03d", ++accountCounter);
+        this.customer = customer;
+        this.balance = balance;
+        this.status = status;
     }
 
-    double deposit(double amount){
+    public double deposit(double amount){
+        balance = balance + amount;
         return amount;
     }
 
-    double withdraw(double amount){
+    public double withdraw(double amount){
+        balance = balance - amount;
         return amount;
     }
 
 
-    abstract String displayAccountDetails();
+    public abstract String displayAccountDetails();
 
-    abstract String getAccountType();
+    public abstract String getAccountType();
 
     public String getAccountNumber() {
         return accountNumber;
@@ -54,6 +66,23 @@ abstract public class Account {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public boolean processTransaction(double amount, String type) {
+        if(amount <= 0){
+            return false;
+        }
+
+            if (Objects.equals(type, "WITHDRAWAL")) {
+                withdraw(amount);
+            } else if (Objects.equals(type, "DEPOSIT")) {
+                deposit(amount);
+            } else  {
+                return false;
+            }
+
+        return true;
     }
 }
 

@@ -10,16 +10,16 @@ public class AccountManager {
     private int accountCount = 0;
 
 
-    void addAccount(Account account){
+    public void addAccount(Account account){
         accounts.add(account);
         accountCount++;
     }
 
-    Account findAccount(String accountNumber){
+    public Account findAccount(String accountNumber){
         return accounts.stream().filter(e -> e.getAccountNumber().equals(accountNumber)).findFirst().orElse(null);
     }
 
-    void viewAllAccounts(){
+    public void viewAllAccounts(){
         System.out.printf("""
                 
                 
@@ -30,7 +30,7 @@ public class AccountManager {
         return accounts.stream().mapToDouble(Account::getBalance).sum();
     }
 
-    double getAccountCount(){
+    int getAccountCount(){
         return accounts.size();
     }
 }

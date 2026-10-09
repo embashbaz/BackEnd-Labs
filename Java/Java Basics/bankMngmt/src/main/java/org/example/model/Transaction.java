@@ -7,7 +7,7 @@ public class Transaction {
 
     private static int transactionCounter = 0;
 
-    Transaction(
+    public Transaction(
             String accountNumber,
             String type,
             double amount,
@@ -17,8 +17,7 @@ public class Transaction {
             this.amount = amount;
             this.balanceAfter = balanceAfter;
             this.type = type;
-            transactionCounter++;
-            this.transactionID = "TXN" + transactionCounter;
+            this.transactionID = String.format("TXN%03d", ++transactionCounter);
             this.timestamp = LocalDateTime.now().toString();
     }
 
