@@ -7,7 +7,9 @@ abstract public class Account {
     private Customer customer;
     private double balance;
     private String status;
+    Account(){
 
+    }
 
     double deposit(double amount){
         return amount;

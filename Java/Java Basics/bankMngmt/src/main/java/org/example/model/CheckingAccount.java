@@ -6,6 +6,7 @@ public class CheckingAccount extends  Account{
 
 
     CheckingAccount(){
+        super();
         overdraftLimit = 1000;
         if(getCustomer() instanceof PremiumCustomer){
             monthlyFee = 0;
