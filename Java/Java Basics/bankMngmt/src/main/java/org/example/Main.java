@@ -152,6 +152,9 @@ public class Main {
         System.out.println();
 
         String accNo = readString("Enter Account Number: ");
+        if(accNo.equalsIgnoreCase("quit")){
+            return;
+        }
         Account account = accounts.findAccount(accNo);
         if (account == null) {
             System.out.println();
@@ -213,7 +216,6 @@ public class Main {
         try {
             ok = account.processTransaction(amount, type);
         } catch (RuntimeException e) {
-            ok = false;
             System.out.println();
             System.out.println("✗ Transaction failed: " + e.getMessage());
             System.out.println();
