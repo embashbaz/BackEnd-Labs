@@ -21,6 +21,15 @@ abstract public class Account implements Transactable{
         this.status = status;
     }
 
+    Account(){}
+
+
+    void createAccount(){
+
+    }
+
+    new Account();
+
     public double deposit(double amount){
         balance = balance + amount;
         return amount;
