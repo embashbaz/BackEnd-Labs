@@ -29,9 +29,9 @@ public class AccountManager {
                 "─".repeat(73));
         System.out.println(HEADER);
         for(Account acc:accounts){
-            System.out.print(format("%-8s | %-17s | %-17s | $%,12.2f | %-6s%n",
+            System.out.print(format("%-8s | %-24s | %-17s | $%,12.2f | %-6s%n",
                     acc.getAccountNumber(),
-                    acc.getCustomer().getName(),
+                    acc.getCustomer().getName() + " (" + acc.getCustomer().getCustomerId() + ")",
                     acc.getAccountType(),
                     acc.getBalance(),
                     acc.getStatus()));

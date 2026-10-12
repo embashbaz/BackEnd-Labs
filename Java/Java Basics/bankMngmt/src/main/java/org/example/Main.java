@@ -121,7 +121,8 @@ public class Main {
         System.out.println("✓ Account created successfully!");
         System.out.println("  Account Number: " + account.getAccountNumber());
         System.out.println("  Customer: " + customer.getName()
-                + " (" + customer.getCustomerType() + ")");
+                + " (" + customer.getCustomerType() + ")"
+                + " [ID: " + customer.getCustomerId() + "]");
         System.out.println("  Account Type: " + account.getAccountType());
         System.out.printf("  Initial Balance: $%,.2f%n", account.getBalance());
         System.out.println("  " + account.displayAccountDetails());
@@ -163,8 +164,15 @@ public class Main {
         System.out.println("1. Deposit");
         System.out.println("2. Withdrawal");
         System.out.println();
-        int typeChoice = readInt("Select type (1-2): ");
 
+        int typeChoice = readInt("Select type (1-2): ");
+        if (typeChoice != 1 && typeChoice != 2) {
+            System.out.println();
+            System.out.println("Invalid transaction type. Please enter 1 or 2.");
+            System.out.println();
+            pressEnter();
+            return;
+        }
         String type = (typeChoice == 1) ? "DEPOSIT" : "WITHDRAWAL";
 
         System.out.println();
