@@ -107,6 +107,7 @@ public class Main {
 
         System.out.println();
         double deposit = readDouble("Enter initial deposit amount: $");
+        if (deposit <= 0) { System.out.println("Deposit must be positive."); pressEnter(); return; }
 
         Account account;
         if (accountChoice == 1) {
@@ -168,7 +169,7 @@ public class Main {
 
         System.out.println();
         double amount = readDouble("Enter amount: $");
-        if (amount <= 0) { System.out.println("Amount must be positive."); return; }
+        if (amount <= 0) { System.out.println("\nAmount must be positive."); pressEnter(); return; }
         double previous = account.getBalance();
         double projected = type.equals("DEPOSIT") ? previous + amount : previous - amount;
 

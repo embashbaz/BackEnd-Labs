@@ -31,15 +31,15 @@ public class TransactionManager {
             return;
         }
         String HEADER = String.format(
-                "%-8s | %-17s | %-17s | %-13s | %s%n" +
+                "%-8s | %-17s | %-17s | %-13s | %-13s%n" +
                         "%s%n",
                 "TXN ID", "DATE/TIME", "TYPE", "AMOUNT", "BALANCE",
-                "─".repeat(74));
+                "─".repeat(80));
         System.out.println(HEADER);
 
         for(Transaction txn:transaction){
             txn.displayTransactionDetails();
-            System.out.println("─".repeat(74));
+            System.out.println("─".repeat(80));
         }
         double deps = calculateTotalDeposits(accountNumber);
         double wds  = calculateTotalWithdrawals(accountNumber);

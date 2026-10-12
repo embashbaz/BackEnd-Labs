@@ -26,7 +26,7 @@ public class AccountManager {
                 "%-8s | %-17s | %-17s | %-13s | %-6s%n" +
                         "%s%n",
                 "ACC NO", "CUSTOMER NAME", "TYPE", "BALANCE", "STATUS",
-                "─".repeat(74));
+                "─".repeat(73));
         System.out.println(HEADER);
         for(Account acc:accounts){
             System.out.print(format("%-8s | %-17s | %-17s | $%,12.2f | %-6s%n",
@@ -36,7 +36,7 @@ public class AccountManager {
                     acc.getBalance(),
                     acc.getStatus()));
             System.out.print(format("         | %s%n", acc.displayAccountDetails()));
-            System.out.println("─".repeat(74));
+            System.out.println("─".repeat(73));
         }
         System.out.println( "Total Accounts: " + accountCount);
         System.out.printf("Total Bank Balance: $%,.2f%n", getTotalBalance());

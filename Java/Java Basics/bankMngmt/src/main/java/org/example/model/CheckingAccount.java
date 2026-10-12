@@ -12,7 +12,7 @@ public class CheckingAccount extends  Account{
     ){
         super(customer, balance, status);
         overdraftLimit = 1000;
-        if(getCustomer() instanceof PremiumCustomer){
+        if (getCustomer() instanceof PremiumCustomer pc && pc.hasWaivedFees()) {
             monthlyFee = 0;
         } else {
             monthlyFee = 10;

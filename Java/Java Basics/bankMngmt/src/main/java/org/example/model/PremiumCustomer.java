@@ -10,13 +10,28 @@ public class PremiumCustomer extends  Customer{
         super(name, contact, address, age);
     }
 
-    boolean hasWaivedFees(){
+    public boolean hasWaivedFees(){
         return true;
     }
 
     @Override
     public String displayCustomerDetails() {
-        return "";
+        return String.format("""
+            Customer ID:     %s
+            Name:            %s
+            Age:             %d
+            Contact:         %s
+            Address:         %s
+            Type:            %s
+            Minimum Balance: $%,.2f
+            Fee Waiver:      Yes""",
+                getCustomerId(),
+                getName(),
+                getAge(),
+                getContact(),
+                getAddress(),
+                getCustomerType(),
+                minimumBalance);
     }
 
     @Override

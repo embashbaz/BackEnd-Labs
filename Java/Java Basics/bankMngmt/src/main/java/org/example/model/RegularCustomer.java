@@ -9,7 +9,19 @@ public class RegularCustomer extends Customer{
     }
     @Override
     public String displayCustomerDetails() {
-        return "";
+        return String.format("""
+            Customer ID: %s
+            Name:        %s
+            Age:         %d
+            Contact:     %s
+            Address:     %s
+            Type:        %s""",
+                getCustomerId(),
+                getName(),
+                getAge(),
+                getContact(),
+                getAddress(),
+                getCustomerType());
     }
 
     @Override
