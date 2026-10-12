@@ -94,8 +94,12 @@ public class Main {
         Customer customer;
         if (customerChoice == 2) {
             customer = new PremiumCustomer(name, contact, address, age);
-        } else {
+        } else if(customerChoice == 1) {
             customer = new RegularCustomer(name, contact, address, age);
+        } else {
+            System.out.println("Invalid choice.");
+            pressEnter();
+            return;
         }
 
         System.out.println();
@@ -112,8 +116,12 @@ public class Main {
         Account account;
         if (accountChoice == 1) {
             account = new SavingsAccount(customer, deposit, "Active");
-        } else {
+        } else if (accountChoice == 2){
             account = new CheckingAccount(customer, deposit, "Active");
+        }else {
+            System.out.println("Invalid choice.");
+            pressEnter();
+            return;
         }
         accounts.addAccount(account);
 
