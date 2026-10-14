@@ -1,6 +1,9 @@
 package org.example;
 
+import org.example.exceptions.InvalidAccountException;
+import org.example.exceptions.QuitApplicationException;
 import org.example.sevices.AccountManager;
+import org.example.sevices.StatementGenerator;
 import org.example.sevices.TransactionManager;
 import org.example.models.*;
 
@@ -10,54 +13,92 @@ import static org.example.utils.InputParser.*;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    private static final AccountManager accounts = new AccountManager();
-    private static final TransactionManager txns = new TransactionManager();
+    private static final AccountManager accountManager = new AccountManager();
+    private static final TransactionManager transactionManager = new TransactionManager(accountManager);
+    private static final StatementGenerator statementGenerator = new StatementGenerator(transactionManager);
 
     public static void main(String[] args) {
         seedAccounts();
         boolean running = true;
         while (running) {
             printMenu();
-            int choice = readInt("Enter choice: ");
-            switch (choice) {
-                case 1 -> createAccount();
-                case 2 -> viewAccounts();
-                case 3 -> processTransaction();
-                case 4 -> viewTransactionHistory();
-                case 5 -> running = false;
-                default -> System.out.println("Invalid choice. Try again.");
+            try {
+                int choice = readInt("Enter choice: ");
+                switch (choice) {
+                    case 1 -> manageAccount();
+                    case 2 -> processTransaction();
+                    case 3 -> viewTransactionHistory();
+                    case 4 -> runTest();
+                    case 5 -> running = false;
+                    default -> System.out.println("Invalid choice. Try again.");
+                }
+            } catch (QuitApplicationException e){
+                running = false;
             }
+
         }
         System.out.println("Thank you for using Bank Account Management System!");
         System.out.println("Goodbye!");
     }
 
     private static void seedAccounts() {
-        accounts.addAccount(new SavingsAccount(
+        accountManager.addAccount(new SavingsAccount(
                 new RegularCustomer("John Smith", "+1-555-0101",
                         "12 Elm Street, Springfield", 34),
                 5250.00, "Active"));
 
-        accounts.addAccount(new CheckingAccount(
+        accountManager.addAccount(new CheckingAccount(
                 new RegularCustomer("Sarah Johnson", "+1-555-0102",
                         "88 Pine Road, Springfield", 29),
                 3450.00, "Active"));
 
-        accounts.addAccount(new SavingsAccount(
+        accountManager.addAccount(new SavingsAccount(
                 new RegularCustomer("Michael Chen", "+1-555-0103",
                         "5 Birch Lane, Springfield", 41),
                 15750.00, "Active"));
 
-        accounts.addAccount(new CheckingAccount(
+        accountManager.addAccount(new CheckingAccount(
                 new RegularCustomer("Emily Brown", "+1-555-0104",
                         "230 Cedar Ave, Springfield", 26),
                 890.00, "Active"));
 
-        accounts.addAccount(new SavingsAccount(
+        accountManager.addAccount(new SavingsAccount(
                 new PremiumCustomer("David Wilson", "+1-555-0105",
                         "17 Oak Boulevard, Springfield", 52),
                 25300.00, "Active"));
     }
+
+    private static void manageAccount(){
+        System.out.println("""
+            
+            ACCOUNT MANAGEMENT
+           
+            1. Create Account
+            2. View Accounts
+            3. Exit
+
+            """);
+        int choice        = readInt("Enter option: ");
+        switch (choice){
+            case 1 -> createAccount();
+            case 2 -> viewAccounts();
+            case 3 -> {
+                pressEnter();
+            }
+            default -> {
+                System.out.println("Invalid choice. Try again.");
+                manageAccount();
+                return;
+            }
+        }
+    }
+
+
+    private static void runTest(){
+
+    }
+
+
 
     private static void printMenu() {
         System.out.println("""
@@ -65,10 +106,10 @@ public class Main {
             ║   BANK ACCOUNT MANAGEMENT - MAIN MENU      ║
             ╚════════════════════════════════════════════╝
 
-            1. Create Account
-            2. View Accounts
-            3. Process Transaction
-            4. View Transaction History
+            1. Manage Accounts
+            2. Perform Transactions
+            3. Generate Account Statements
+            4. Run Tests
             5. Exit
 
             """);
@@ -84,13 +125,7 @@ public class Main {
         String contact = readString("Enter customer contact: ");
         String address = readString("Enter customer address: ");
 
-        System.out.println();
-        System.out.println("Customer type:");
-        System.out.println("1. Regular Customer (Standard banking services)");
-        System.out.println("2. Premium Customer (Enhanced benefits, min balance $10,000)");
-        System.out.println();
-        int customerChoice = readInt("Select type (1-2): ");
-
+        int customerChoice = getCustomerType();
         Customer customer;
         if (customerChoice == 2) {
             customer = new PremiumCustomer(name, contact, address, age);
@@ -98,20 +133,13 @@ public class Main {
             customer = new RegularCustomer(name, contact, address, age);
         } else {
             System.out.println("Invalid choice.");
-            pressEnter();
             return;
         }
 
-        System.out.println();
-        System.out.println("Account type:");
-        System.out.println("1. Savings Account (Interest: 3.5%, Min Balance: $500)");
-        System.out.println("2. Checking Account (Overdraft: $1,000, Monthly Fee: $10)");
-        System.out.println();
-        int accountChoice = readInt("Select type (1-2): ");
+        int accountChoice = getAccountType();
 
         System.out.println();
-        double deposit = readDouble("Enter initial deposit amount: $");
-        if (deposit <= 0) { System.out.println("Deposit must be positive."); pressEnter(); return; }
+        double deposit = getDepositAmount();
 
         Account account;
         if (accountChoice == 1) {
@@ -123,7 +151,7 @@ public class Main {
             pressEnter();
             return;
         }
-        accounts.addAccount(account);
+        accountManager.addAccount(account);
 
         System.out.println();
         System.out.println("✓ Account created successfully!");
@@ -140,8 +168,50 @@ public class Main {
         pressEnter();
     }
 
+    private static double getDepositAmount(){
+        double deposit = readDouble("Enter amount: $");
+        if (deposit <= 0) {
+            System.out.println("Amount must be positive.");  return getDepositAmount(); }
+        else {
+            return deposit;
+        }
+    }
+
+    private static int getAccountType(){
+        System.out.println();
+        System.out.println("Account type:");
+        System.out.println("1. Savings Account (Interest: 3.5%, Min Balance: $500)");
+        System.out.println("2. Checking Account (Overdraft: $1,000, Monthly Fee: $10)");
+        System.out.println();
+        int accountChoice = readInt("Select type (1-2): ");
+        if(accountChoice > 2 || accountChoice < 1){
+            System.out.println("Invalid input. Please enter 1 or 2.");
+            return getAccountType();
+        }  else {
+            return accountChoice;
+        }
+    }
+
+    private static int getCustomerType(){
+        System.out.println();
+        System.out.println("Customer type:");
+        System.out.println("1. Regular Customer (Standard banking services)");
+        System.out.println("2. Premium Customer (Enhanced benefits, min balance $10,000)");
+        System.out.println();
+        int customerChoice = readInt("Select type (1-2): ");
+
+        if(customerChoice > 2 || customerChoice < 1){
+            System.out.println("Invalid input. Please enter a 1 or 2.");
+            return getCustomerType();
+        }  else {
+            return customerChoice;
+        }
+
+
+    }
+
     private static void viewAccounts() {
-        accounts.viewAllAccounts();
+        accountManager.viewAllAccounts();
         System.out.println();
         pressEnter();
     }
@@ -155,12 +225,13 @@ public class Main {
         if(accNo.equalsIgnoreCase("quit")){
             return;
         }
-        Account account = accounts.findAccount(accNo);
-        if (account == null) {
+        Account account;
+        try {
+            account = accountManager.findAccount(accNo);
+        } catch (InvalidAccountException e){
             System.out.println();
             System.out.println("Account not found: " + accNo);
-            System.out.println();
-            pressEnter();
+            processTransaction();
             return;
         }
 
@@ -170,25 +241,13 @@ public class Main {
         System.out.println("Account Type: " + account.getAccountType());
         System.out.printf("Current Balance: $%,.2f%n", account.getBalance());
 
-        System.out.println();
-        System.out.println("Transaction type:");
-        System.out.println("1. Deposit");
-        System.out.println("2. Withdrawal");
-        System.out.println();
 
-        int typeChoice = readInt("Select type (1-2): ");
-        if (typeChoice != 1 && typeChoice != 2) {
-            System.out.println();
-            System.out.println("Invalid transaction type. Please enter 1 or 2.");
-            System.out.println();
-            pressEnter();
-            return;
-        }
+        int typeChoice = validateTransactionType();
+
         String type = (typeChoice == 1) ? "DEPOSIT" : "WITHDRAWAL";
 
         System.out.println();
-        double amount = readDouble("Enter amount: $");
-        if (amount <= 0) { System.out.println("\nAmount must be positive."); pressEnter(); return; }
+        double amount = getDepositAmount();
         double previous = account.getBalance();
         double projected = type.equals("DEPOSIT") ? previous + amount : previous - amount;
 
@@ -214,8 +273,9 @@ public class Main {
 
         boolean ok;
         try {
-            ok = account.processTransaction(amount, type);
-        } catch (RuntimeException e) {
+            account.processTransaction(amount, type);
+            ok = true;
+        } catch (IllegalArgumentException e) {
             System.out.println();
             System.out.println("✗ Transaction failed: " + e.getMessage());
             System.out.println();
@@ -236,12 +296,31 @@ public class Main {
                 type,
                 amount,
                 account.getBalance());
-        txns.addTransaction(txn);
+        transactionManager.addTransaction(txn);
 
         System.out.println();
         System.out.println("✓ Transaction completed successfully!");
         System.out.println();
         pressEnter();
+    }
+
+    private static int validateTransactionType(){
+        System.out.println();
+        System.out.println("Transaction type:");
+        System.out.println("1. Deposit");
+        System.out.println("2. Withdrawal");
+        System.out.println();
+
+        int typeChoice = readInt("Select type (1-2): ");
+
+
+        if (typeChoice != 1 && typeChoice != 2) {
+            System.out.println();
+            System.out.println("Invalid transaction type. Please enter 1 or 2.");
+            System.out.println();
+            return validateTransactionType();
+        }
+        return typeChoice;
     }
 
     private static void viewTransactionHistory() {
@@ -250,8 +329,10 @@ public class Main {
         System.out.println();
 
         String accNo = readString("Enter Account Number: ");
-        Account account = accounts.findAccount(accNo);
-        if (account == null) {
+        Account account;
+        try {
+             account = accountManager.findAccount(accNo);
+        } catch (InvalidAccountException e){
             System.out.println();
             System.out.println("Account not found: " + accNo);
             System.out.println();
@@ -266,7 +347,7 @@ public class Main {
         System.out.printf("Current Balance: $%,.2f%n", account.getBalance());
         System.out.println();
 
-        txns.showAllTransactions(account.getAccountNumber());
+        statementGenerator.generateStatement(account);
         System.out.println();
         pressEnter();
     }
