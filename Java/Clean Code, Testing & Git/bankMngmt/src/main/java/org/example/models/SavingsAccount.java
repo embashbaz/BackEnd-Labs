@@ -1,5 +1,7 @@
 package org.example.models;
 
+import org.example.exceptions.InsufficientFundsException;
+
 public class SavingsAccount extends  Account{
     private  double interestRate;
     private  double minimumBalance;
@@ -18,7 +20,7 @@ public class SavingsAccount extends  Account{
     @Override
     public double withdraw(double amount) {
         if((getBalance() - amount) < minimumBalance){
-            throw new RuntimeException("You cannot withdraw beyond the allowed limit");
+            throw new InsufficientFundsException("You cannot withdraw beyond the allowed limit");
         }
         return  super.withdraw(amount);
     }

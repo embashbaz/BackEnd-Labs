@@ -1,5 +1,7 @@
 package org.example.models;
 
+import org.example.exceptions.OverdraftExceededException;
+
 public class CheckingAccount extends  Account{
     private double overdraftLimit ;
     private double monthlyFee;
@@ -23,7 +25,7 @@ public class CheckingAccount extends  Account{
     @Override
     public double withdraw(double amount) {
         if((getBalance() - amount) < (0 - overdraftLimit)){
-            throw new RuntimeException("You can not withdraw beyond the allowed limit");
+            throw new OverdraftExceededException("You can not withdraw beyond the allowed limit");
         }
         return  super.withdraw(amount);
     }
