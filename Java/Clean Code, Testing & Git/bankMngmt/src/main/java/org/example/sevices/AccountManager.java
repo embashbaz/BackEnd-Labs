@@ -1,7 +1,9 @@
 package org.example.sevices;
 
+import org.example.exceptions.InvalidAccountException;
 import org.example.utils.BoundedList;
 import org.example.models.Account;
+import org.example.utils.Validator;
 
 import static java.lang.String.format;
 
@@ -18,7 +20,25 @@ public class AccountManager {
     }
 
     public Account findAccount(String accountNumber){
-        return accounts.stream().filter(e -> e.getAccountNumber().equalsIgnoreCase(accountNumber)).findFirst().orElse(null);
+        var account = accounts.stream().filter(e -> e.getAccountNumber().equalsIgnoreCase(accountNumber)).findFirst().orElse(null);
+        if(account == null){
+            throw new InvalidAccountException("Account not found");
+        }
+        return account;
+    }
+
+    public void transfer(String fromAcc, String toAcc, double amount){
+        Account source = findAccount(fromAcc);
+        Account dest = findAccount(toAcc);
+        Validator.validateAmount(amount);
+
+        double money = source.withdraw(amount);
+        try {
+            dest.deposit(money);
+        } catch (Exception e){
+            source.deposit(money);
+            throw e;
+        }
     }
 
     public void viewAllAccounts(){
@@ -29,7 +49,7 @@ public class AccountManager {
                 "─".repeat(73));
         System.out.println(HEADER);
         for(Account acc:accounts){
-            System.out.print(format("%-8s | %-24s | %-17s | $%,12.2f | %-6s%n",
+            System.out.print(String.format("%-8s | %-24s | %-17s | $%,12.2f | %-6s%n",
                     acc.getAccountNumber(),
                     acc.getCustomer().getName() + " (" + acc.getCustomer().getCustomerId() + ")",
                     acc.getAccountType(),
@@ -43,11 +63,11 @@ public class AccountManager {
 
     }
 
-    double getTotalBalance(){
+    public double getTotalBalance(){
         return accounts.stream().mapToDouble(Account::getBalance).sum();
     }
 
-    int getAccountCount(){
+    public int getAccountCount(){
         return accounts.size();
     }
 }

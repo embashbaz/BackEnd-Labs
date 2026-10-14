@@ -1,6 +1,6 @@
 package org.example.models;
 
-import org.example.exceptions.InvalidAmountException;
+import org.example.utils.Validator;
 
 import java.util.Objects;
 
@@ -24,13 +24,13 @@ abstract public class Account implements Transactable{
     }
 
     public double deposit(double amount){
-        validateAmount(amount);
+        Validator.validateAmount(amount);
         balance = balance + amount;
         return amount;
     }
 
     public double withdraw(double amount){
-        validateAmount(amount);
+        Validator.validateAmount(amount);
         balance = balance - amount;
         return amount;
     }
@@ -74,7 +74,7 @@ abstract public class Account implements Transactable{
 
     @Override
     public void processTransaction(double amount, String type) {
-        validateAmount(amount);
+        Validator.validateAmount(amount);
         if (Objects.equals(type, "WITHDRAWAL")) {
             withdraw(amount);
         } else if (Objects.equals(type, "DEPOSIT")) {
@@ -84,10 +84,6 @@ abstract public class Account implements Transactable{
         }
     }
 
-    private void validateAmount(double amount){
-        if(amount <= 0){
-            throw new InvalidAmountException("Amount cannot be equal or less than 0");
-        }
-    }
+
 }
 
