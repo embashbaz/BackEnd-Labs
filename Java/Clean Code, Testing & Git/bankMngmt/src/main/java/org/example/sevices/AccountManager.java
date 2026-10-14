@@ -1,7 +1,7 @@
-package org.example.domain;
+package org.example.sevices;
 
 import org.example.utils.BoundedList;
-import org.example.model.Account;
+import org.example.models.Account;
 
 import static java.lang.String.format;
 

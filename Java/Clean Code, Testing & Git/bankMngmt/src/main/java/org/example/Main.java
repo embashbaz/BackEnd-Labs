@@ -1,8 +1,8 @@
 package org.example;
 
-import org.example.domain.AccountManager;
-import org.example.domain.TransactionManager;
-import org.example.model.*;
+import org.example.sevices.AccountManager;
+import org.example.sevices.TransactionManager;
+import org.example.models.*;
 
 import static org.example.utils.InputParser.*;
 
