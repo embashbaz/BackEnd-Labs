@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: java/Clean Code, Testing & Git/bankMngmt
+        working-directory: 'java/Clean Code, Testing & Git/bankMngmt'
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
