@@ -24,6 +24,9 @@ public class Transaction {
             this.timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a"));
     }
 
+    public static void resetCounter(){
+        transactionCounter = 0;
+    }
 
     public void displayTransactionDetails(){
         String signedAmount = (type.equals("DEPOSIT") ? "+" : "-")

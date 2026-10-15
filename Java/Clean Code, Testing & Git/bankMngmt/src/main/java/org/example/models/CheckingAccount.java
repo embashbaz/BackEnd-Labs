@@ -46,4 +46,8 @@ public class CheckingAccount extends  Account{
     public void applyMonthlyFee(){
         setBalance(getBalance() - monthlyFee);
     }
+
+    public double getMonthlyFee() {
+        return monthlyFee;
+    }
 }

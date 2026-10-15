@@ -13,6 +13,10 @@ abstract public class Customer {
         this.age = age;
     }
 
+    public static void resetCounter(){
+        customerCounter = 0;
+    }
+
     public abstract String displayCustomerDetails();
 
     public abstract String getCustomerType();

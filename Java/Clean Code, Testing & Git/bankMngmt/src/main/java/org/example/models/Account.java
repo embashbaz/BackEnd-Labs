@@ -44,6 +44,10 @@ abstract public class Account implements Transactable{
         return accountNumber;
     }
 
+    public static void resetCounter(){
+        accountCounter = 0;
+    }
+
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
