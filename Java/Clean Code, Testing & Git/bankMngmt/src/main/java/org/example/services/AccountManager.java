@@ -1,4 +1,4 @@
-package org.example.sevices;
+package org.example.services;
 
 import org.example.exceptions.InvalidAccountException;
 import org.example.utils.BoundedList;

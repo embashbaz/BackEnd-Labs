@@ -1,10 +1,9 @@
 package org.example;
 
-import org.example.exceptions.InvalidAccountException;
-import org.example.exceptions.QuitApplicationException;
-import org.example.sevices.AccountManager;
-import org.example.sevices.StatementGenerator;
-import org.example.sevices.TransactionManager;
+import org.example.exceptions.*;
+import org.example.services.AccountManager;
+import org.example.services.StatementGenerator;
+import org.example.services.TransactionManager;
 import org.example.models.*;
 
 import static org.example.utils.InputParser.*;
@@ -14,7 +13,7 @@ import static org.example.utils.InputParser.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     private static final AccountManager accountManager = new AccountManager();
-    private static final TransactionManager transactionManager = new TransactionManager(accountManager);
+    private static final TransactionManager transactionManager = new TransactionManager();
     private static final StatementGenerator statementGenerator = new StatementGenerator(transactionManager);
 
     public static void main(String[] args) {
@@ -26,7 +25,7 @@ public class Main {
                 int choice = readInt("Enter choice: ");
                 switch (choice) {
                     case 1 -> manageAccount();
-                    case 2 -> processTransaction();
+                    case 2 -> transact();
                     case 3 -> viewTransactionHistory();
                     case 4 -> runTest();
                     case 5 -> running = false;
@@ -93,6 +92,31 @@ public class Main {
         }
     }
 
+    private static void transact(){
+        System.out.println("""
+            
+            TRANSACT
+           
+            1. Withdraw or deposit
+            2. Account to Account transfer
+            3. Exit
+
+            """);
+        int choice        = readInt("Enter option: ");
+        switch (choice){
+            case 1 -> processTransaction();
+            case 2 -> processTransferTransaction();
+            case 3 -> {
+                pressEnter();
+            }
+            default -> {
+                System.out.println("Invalid choice. Try again.");
+                transact();
+                return;
+            }
+        }
+    }
+
 
     private static void runTest(){
 
@@ -139,7 +163,7 @@ public class Main {
         int accountChoice = getAccountType();
 
         System.out.println();
-        double deposit = getDepositAmount();
+        double deposit = readPositiveAmount();
 
         Account account;
         if (accountChoice == 1) {
@@ -168,10 +192,10 @@ public class Main {
         pressEnter();
     }
 
-    private static double getDepositAmount(){
+    private static double readPositiveAmount(){
         double deposit = readDouble("Enter amount: $");
         if (deposit <= 0) {
-            System.out.println("Amount must be positive.");  return getDepositAmount(); }
+            System.out.println("Amount must be positive.\n");  return readPositiveAmount(); }
         else {
             return deposit;
         }
@@ -221,18 +245,16 @@ public class Main {
         System.out.println("─".repeat(45));
         System.out.println();
 
-        String accNo = readString("Enter Account Number: ");
-        if(accNo.equalsIgnoreCase("quit")){
-            return;
-        }
-        Account account;
-        try {
-            account = accountManager.findAccount(accNo);
-        } catch (InvalidAccountException e){
-            System.out.println();
-            System.out.println("Account not found: " + accNo);
-            processTransaction();
-            return;
+
+        Account account = null;
+        while (account == null) {
+            String accNo = readString("Enter Account Number: ");
+            if (accNo.equalsIgnoreCase("quit")) return;
+            try {
+                account = accountManager.findAccount(accNo);
+            } catch (InvalidAccountException e) {
+                System.out.println("Account not found: " + accNo);
+            }
         }
 
         System.out.println();
@@ -247,7 +269,7 @@ public class Main {
         String type = (typeChoice == 1) ? "DEPOSIT" : "WITHDRAWAL";
 
         System.out.println();
-        double amount = getDepositAmount();
+        double amount = readPositiveAmount();
         double previous = account.getBalance();
         double projected = type.equals("DEPOSIT") ? previous + amount : previous - amount;
 
@@ -271,7 +293,7 @@ public class Main {
             return;
         }
 
-        boolean ok;
+        boolean ok = false;
         try {
             account.processTransaction(amount, type);
             ok = true;
@@ -281,6 +303,12 @@ public class Main {
             System.out.println();
             pressEnter();
             return;
+        } catch (InvalidAmountException e) {
+            System.out.println("✗ Invalid amount: " + e.getMessage());
+        } catch (InsufficientFundsException e) {
+            System.out.println("✗ Transaction failed: " + e.getMessage());
+        } catch (OverdraftExceededException e) {
+            System.out.println("✗ Transaction failed: " + e.getMessage());
         }
 
         if (!ok) {
@@ -297,6 +325,113 @@ public class Main {
                 amount,
                 account.getBalance());
         transactionManager.addTransaction(txn);
+
+        System.out.println();
+        System.out.println("✓ Transaction completed successfully!");
+        System.out.println();
+        pressEnter();
+    }
+
+    private static void processTransferTransaction() {
+        System.out.println("PROCESS TRANSACTION");
+        System.out.println("─".repeat(45));
+        System.out.println();
+
+
+        String toAccNo = readString("Enter Account Number to transfer money to: ");
+
+
+        Account fromAccount = null;
+        while (fromAccount == null) {
+            String accNo = readString("Enter Account Number to get money from: ");
+            if (accNo.equalsIgnoreCase("quit")) return;
+            try {
+                fromAccount = accountManager.findAccount(accNo);
+            } catch (InvalidAccountException e) {
+                System.out.println("Account not found: " + accNo);
+            }
+        }
+
+        Account toAccount = null;
+        while (toAccount == null) {
+            String accNo = readString("Enter Account Number to transfer money to: ");
+            if (accNo.equalsIgnoreCase("quit")) return;
+            try {
+                toAccount = accountManager.findAccount(accNo);
+            } catch (InvalidAccountException e) {
+                System.out.println("Account not found: " + accNo);
+            }
+        }
+
+
+        System.out.println();
+        System.out.println("From Account Details:");
+        System.out.println("Customer: " + fromAccount.getCustomer().getName());
+        System.out.println("Account Type: " + fromAccount.getAccountType());
+        System.out.printf("Current Balance: $%,.2f%n", fromAccount.getBalance());
+
+        System.out.println();
+        System.out.println("To Account Details:");
+        System.out.println("Customer: " + toAccount.getCustomer().getName());
+        System.out.println("Account Type: " + toAccount.getAccountType());
+
+        System.out.println();
+        double amount = readPositiveAmount();
+
+        System.out.println();
+        System.out.println("TRANSACTION CONFIRMATION");
+        System.out.println("─".repeat(45));
+        System.out.printf("Amount: $%,.2f%n", amount);
+        System.out.println("─".repeat(45));
+        System.out.println();
+
+        if (!readYesNo("Confirm transaction? (Y/N): ")) {
+            System.out.println();
+            System.out.println("Transaction cancelled.");
+            System.out.println();
+            pressEnter();
+            return;
+        }
+
+        boolean ok = false;
+        try {
+            accountManager.transfer(fromAccount.getAccountNumber(), toAccount.getAccountNumber(), amount);
+            ok = true;
+        } catch (IllegalArgumentException e) {
+            System.out.println();
+            System.out.println("✗ Transaction failed: " + e.getMessage());
+            System.out.println();
+            pressEnter();
+            return;
+        } catch (InvalidAmountException e) {
+            System.out.println("✗ Invalid amount: " + e.getMessage());
+        } catch (InsufficientFundsException e) {
+            System.out.println("✗ Transaction failed: " + e.getMessage());
+        } catch (OverdraftExceededException e) {
+            System.out.println("✗ Transaction failed: " + e.getMessage());
+        }
+
+        if (!ok) {
+            System.out.println();
+            System.out.println("✗ Transaction failed. Check the amount and account limits.");
+            System.out.println();
+            pressEnter();
+            return;
+        }
+
+        Transaction fromTxn = new Transaction(
+                fromAccount.getAccountNumber(),
+                "WITHDRAWAL",
+                amount,
+                fromAccount.getBalance());
+        transactionManager.addTransaction(fromTxn);
+
+        Transaction toTxn = new Transaction(
+                toAccount.getAccountNumber(),
+                "DEPOSIT",
+                amount,
+                toAccount.getBalance());
+        transactionManager.addTransaction(toTxn);
 
         System.out.println();
         System.out.println("✓ Transaction completed successfully!");
