@@ -1,3 +1,5 @@
+
+
 plugins {
     id("java")
 }
@@ -7,6 +9,12 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)   // match CI
+    }
 }
 
 dependencies {

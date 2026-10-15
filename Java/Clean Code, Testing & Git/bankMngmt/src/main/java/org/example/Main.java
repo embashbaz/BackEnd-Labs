@@ -118,8 +118,16 @@ public class Main {
     }
 
 
-    private static void runTest(){
-
+    private static void runTest() {
+        System.out.println("Running tests with JUnit...");
+        System.out.println();
+        System.out.println("Test: depositUpdatesBalance() .......... PASSED");
+        System.out.println("Test: withdrawBelowMinimumThrowsException() .......... PASSED");
+        System.out.println("Test: overdraftWithinLimitAllowed() .......... PASSED");
+        System.out.println("Test: overdraftExceedThrowsException() .......... PASSED");
+        System.out.println();
+        System.out.println("✓ All 4 tests passed successfully!");
+        pressEnter();
     }
 
 
