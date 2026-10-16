@@ -156,9 +156,7 @@ GitHub Actions runs on every push to `dev` and on pull requests targeting
 
 Status badge:
 
-```markdown
 ![CI](https://github.com/embashbaz/BackEnd-Labs/actions/workflows/clean-code-ci.yml/badge.svg?branch=dev)
-```
 
 See [docs/git-workflow.md](docs/git-workflow.md) for branching rules,
 commit conventions, cherry-pick usage, and CI details.
