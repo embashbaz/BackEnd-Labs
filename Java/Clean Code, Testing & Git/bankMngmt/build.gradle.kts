@@ -1,7 +1,6 @@
-
-
 plugins {
     id("java")
+    id("application")
 }
 
 group = "org.example"
@@ -13,7 +12,7 @@ repositories {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)   // match CI
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -21,8 +20,26 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:6.0.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    implementation(platform("org.junit:junit-bom:6.0.0"))
+    implementation("org.junit.platform:junit-platform-launcher")
+    implementation("org.junit.jupiter:junit-jupiter-engine")
+}
+
+sourceSets {
+    main {
+        runtimeClasspath += sourceSets.test.get().output
+    }
+}
+
+application {
+    mainClass = "org.example.Main"
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }

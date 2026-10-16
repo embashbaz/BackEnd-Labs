@@ -6,7 +6,19 @@ import org.example.services.StatementGenerator;
 import org.example.services.TransactionManager;
 import org.example.models.*;
 
+import java.io.PrintWriter;
+
 import static org.example.utils.InputParser.*;
+
+import org.junit.platform.engine.discovery.DiscoverySelectors;
+import org.junit.platform.launcher.Launcher;
+import org.junit.platform.launcher.LauncherDiscoveryRequest;
+import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
+import org.junit.platform.launcher.core.LauncherFactory;
+import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
+import org.junit.platform.launcher.listeners.TestExecutionSummary;
+
+import java.io.PrintWriter;
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -119,14 +131,32 @@ public class Main {
 
 
     private static void runTest() {
+        System.out.println();
         System.out.println("Running tests with JUnit...");
+        System.out.println("─".repeat(60));
+
+        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
+                .selectors(DiscoverySelectors.selectPackage("org.example"))
+                .build();
+
+        Launcher launcher = LauncherFactory.create();
+        SummaryGeneratingListener listener = new SummaryGeneratingListener();
+        launcher.execute(request, listener);
+
+        TestExecutionSummary summary = listener.getSummary();
+        PrintWriter out = new PrintWriter(System.out);
+        summary.printTo(out);
+        out.flush();
+
+        System.out.println("─".repeat(60));
+        if (summary.getTotalFailureCount() == 0) {
+            System.out.printf("✓ All %d tests passed successfully!%n",
+                    summary.getTestsSucceededCount());
+        } else {
+            System.out.printf("✗ %d of %d tests failed.%n",
+                    summary.getTestsFailedCount(), summary.getTestsStartedCount());
+        }
         System.out.println();
-        System.out.println("Test: depositUpdatesBalance() .......... PASSED");
-        System.out.println("Test: withdrawBelowMinimumThrowsException() .......... PASSED");
-        System.out.println("Test: overdraftWithinLimitAllowed() .......... PASSED");
-        System.out.println("Test: overdraftExceedThrowsException() .......... PASSED");
-        System.out.println();
-        System.out.println("✓ All 4 tests passed successfully!");
         pressEnter();
     }
 
@@ -345,8 +375,6 @@ public class Main {
         System.out.println("─".repeat(45));
         System.out.println();
 
-
-        String toAccNo = readString("Enter Account Number to transfer money to: ");
 
 
         Account fromAccount = null;
