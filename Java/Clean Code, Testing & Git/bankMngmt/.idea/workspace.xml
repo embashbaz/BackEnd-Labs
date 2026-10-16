@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04cac930-e80e-4592-a847-564142d89105" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,23 +51,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.659701433339308" />
-      <entry key="MS500" value="3.495098447380057" />
-      <entry key="S2" value="7.3943813091577395" />
-      <entry key="S5" value="14.52288045750565" />
-      <entry key="S10" value="22.31113240862369" />
-      <entry key="S30" value="40.276035452238304" />
-      <entry key="S60" value="52.58212022151076" />
-      <entry key="M2" value="61.84870494318626" />
-      <entry key="M5" value="69.0560009567171" />
-      <entry key="M10" value="71.87814670080867" />
-      <entry key="M15" value="72.88152751121893" />
-      <entry key="M30" value="73.97171438792824" />
-      <entry key="H1" value="78.24404999366782" />
-      <entry key="H2" value="108.94945000725815" />
-      <entry key="H4" value="181.57325215759897" />
-      <entry key="D1" value="612.418120272285" />
-      <entry key="W1" value="1479.618512014055" />
+      <entry key="MS100" value="1.020683117905464" />
+      <entry key="MS500" value="2.938180623980774" />
+      <entry key="S2" value="11.730895706067688" />
+      <entry key="S5" value="23.10270217796001" />
+      <entry key="S10" value="36.521206310028134" />
+      <entry key="S30" value="60.51413300623784" />
+      <entry key="S60" value="71.15359288708653" />
+      <entry key="M2" value="77.61355469906688" />
+      <entry key="M5" value="81.92506331988461" />
+      <entry key="M10" value="83.44165046948422" />
+      <entry key="M15" value="83.95639706354432" />
+      <entry key="M30" value="84.47583095042145" />
+      <entry key="H1" value="84.73769011647718" />
+      <entry key="H2" value="85.10528629968437" />
+      <entry key="H4" value="93.39883669342605" />
+      <entry key="D1" value="452.3902711550041" />
+      <entry key="W1" value="1460.4607511133768" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -79,37 +75,37 @@
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
-      <entry key="S30" value="5.016364924618515E-221" />
-      <entry key="S60" value="7.082630107960274E-111" />
-      <entry key="M2" value="8.415836703794972E-56" />
-      <entry key="M5" value="9.390062383131327E-23" />
-      <entry key="M10" value="1.3385722236936869E-11" />
-      <entry key="M15" value="1.2152831572144303E-7" />
-      <entry key="M30" value="0.0019839924215874134" />
-      <entry key="H1" value="0.311564041344101" />
-      <entry key="H2" value="4.109517933209844" />
-      <entry key="H4" value="15.877787884011704" />
-      <entry key="D1" value="121.07106367222444" />
-      <entry key="W1" value="390.10506054842995" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="1.4182699247840533E-215" />
+      <entry key="M5" value="1.1569993498306886E-86" />
+      <entry key="M10" value="1.4858471224685518E-43" />
+      <entry key="M15" value="6.047358168660015E-29" />
+      <entry key="M30" value="4.4257218444171965E-14" />
+      <entry key="H1" value="1.4715308848773377E-6" />
+      <entry key="H2" value="0.008931037368923839" />
+      <entry key="H4" value="0.7401939125149718" />
+      <entry key="D1" value="72.63282624185327" />
+      <entry key="W1" value="362.6440238290421" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5830321264553313" />
-      <entry key="MS500" value="3.4621942137066735" />
-      <entry key="S2" value="7.374999249587675" />
-      <entry key="S5" value="14.507591242882405" />
-      <entry key="S10" value="22.299571225975654" />
-      <entry key="S30" value="40.269140467054605" />
-      <entry key="S60" value="52.57761037445246" />
-      <entry key="M2" value="61.84604548023706" />
-      <entry key="M5" value="69.05480901212174" />
-      <entry key="M10" value="71.87752511719394" />
-      <entry key="M15" value="72.88110710871817" />
-      <entry key="M30" value="73.97348194693775" />
-      <entry key="H1" value="78.5553014051906" />
-      <entry key="H2" value="113.05765472900423" />
-      <entry key="H4" value="197.44871534532686" />
-      <entry key="D1" value="733.4869850482337" />
-      <entry key="W1" value="1869.7225054290484" />
+      <entry key="MS100" value="0.9995613457178403" />
+      <entry key="MS500" value="2.918634284799448" />
+      <entry key="S2" value="11.709275715389616" />
+      <entry key="S5" value="23.08558421321092" />
+      <entry key="S10" value="36.507087253773754" />
+      <entry key="S30" value="60.5057009241573" />
+      <entry key="S60" value="71.14849767941995" />
+      <entry key="M2" value="77.61073447162656" />
+      <entry key="M5" value="81.92386160804466" />
+      <entry key="M10" value="83.44103659106153" />
+      <entry key="M15" value="83.95598485895007" />
+      <entry key="M30" value="84.47562335709294" />
+      <entry key="H1" value="84.73758741429464" />
+      <entry key="H2" value="85.11416230274203" />
+      <entry key="H4" value="94.13889611899246" />
+      <entry key="D1" value="525.0217738817164" />
+      <entry key="W1" value="1823.1037823064148" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -135,6 +131,7 @@
     "Gradle.Tests in 'bankMngmt.test'.executor": "Run",
     "Gradle.TransactionManagerTest.executor": "Run",
     "Gradle.bankMngmt [:org.example.Main.main()].executor": "Run",
+    "Gradle.bankMngmt [test].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -156,7 +153,7 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.bankMngmt [test]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="bankMngmt.main" />
@@ -184,33 +181,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;org.example.services.AccountManagerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="SavingsAccountTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.example.models.SavingsAccountTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -276,13 +246,38 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
+    <configuration name="bankMngmt [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.bankMngmt [test]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.Tests in 'bankMngmt.test'" />
         <item itemvalue="Gradle.TransactionManagerTest" />
         <item itemvalue="Gradle.AccountManagerTest" />
-        <item itemvalue="Gradle.SavingsAccountTest" />
       </list>
     </recent_temporary>
   </component>

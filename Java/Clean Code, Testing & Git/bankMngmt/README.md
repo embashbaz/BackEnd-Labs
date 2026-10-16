@@ -11,7 +11,7 @@ exceptions, JUnit 5 tests, and a GitHub Actions CI pipeline.
 - **View Accounts** — tabular list of all accounts with balances, status, and type-specific details
 - **Perform Transactions** — deposit, withdraw, or transfer between accounts with a confirmation step
 - **Generate Statements** — per-account ledger, newest-first, with totals and net change
-- **Run Tests** — invoke the JUnit suite from the menu (simulated summary)
+- **Run Tests** — invoke the JUnit suite from the menu
 - **Robust error handling** — custom exceptions with friendly console messages; the app never crashes on bad input
 
 ### Account types
@@ -100,8 +100,48 @@ try View Accounts, Perform Transactions, and Generate Statements immediately.
 
 Test reports are written to `build/reports/tests/test/index.html`.
 
-The **Run Tests** menu option (item 4) prints a simulated JUnit summary for
-demo purposes. The real suite is executed by Gradle.
+You can also run the suite from the application menu: **Main Menu → 4. Run Tests**.
+This invokes the JUnit Platform launcher directly and prints a live summary
+to the console.
+
+### Test results
+
+The full suite runs on every push via GitHub Actions and locally on demand.
+Latest run:
+
+```
+────────────────────────────────────────────────────────────
+
+Test run finished after 61 ms
+[         7 containers found      ]
+[         0 containers skipped    ]
+[         7 containers started    ]
+[         0 containers aborted    ]
+[         7 containers successful ]
+[         0 containers failed     ]
+[        49 tests found           ]
+[         0 tests skipped         ]
+[        49 tests started         ]
+[         0 tests aborted         ]
+[        49 tests successful      ]
+[         0 tests failed          ]
+
+────────────────────────────────────────────────────────────
+✓ All 49 tests passed successfully!
+```
+
+**Summary:** 49 / 49 tests passing (100%), 0 failures, 0 skipped.
+
+### Coverage by test class
+
+| Test class | Focus |
+|---|---|
+| `AccountTest` | Deposit / withdraw balance updates, invalid amount handling, `processTransaction` dispatch, auto-generated account IDs |
+| `SavingsAccountTest` | Minimum-balance rule, interest calculation |
+| `CheckingAccountTest` | Overdraft within / at / beyond limit, monthly-fee waiver |
+| `AccountManagerTest` | Account lookup, case-insensitive search, transfer, rollback on failure |
+| `TransactionManagerTest` | Recording, filtering, newest-first ordering, totals, net change |
+| `ExceptionTest` | Custom exception messages and `Validator` behaviour |
 
 ## Continuous Integration
 
@@ -216,6 +256,19 @@ Total Withdrawals:  $750.00
 Net Change:         +$750.00
 ```
 
+### Example: run tests from the menu
+
+```
+Enter choice: 4
+
+Running tests with JUnit...
+────────────────────────────────────────────────────────────
+[        49 tests successful      ]
+[         0 tests failed          ]
+────────────────────────────────────────────────────────────
+✓ All 49 tests passed successfully!
+```
+
 ## Design notes
 
 - **Encapsulation** — all model fields are `private` with public getters/setters.
@@ -241,7 +294,6 @@ Net Change:         +$750.00
 - In-memory only — data is not persisted between runs.
 - `BoundedList` throws `IllegalStateException` if the account (50) or transaction (200) cap is exceeded.
 - Monthly fee application and interest calculation are implemented on the account classes but not exposed via the menu (outside the required user stories).
-- The **Run Tests** menu item prints a simulated summary; the real suite runs via `./gradlew test`.
 
 ## Git workflow
 
