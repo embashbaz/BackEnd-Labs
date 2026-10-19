@@ -5,6 +5,8 @@ import org.example.utils.BoundedList;
 import org.example.models.Account;
 import org.example.utils.Validator;
 
+import java.util.HashMap;
+
 import static java.lang.String.format;
 
 /**
@@ -19,7 +21,7 @@ import static java.lang.String.format;
  */
 public class AccountManager {
 
-    private final BoundedList<Account> accounts = new BoundedList<>(50);
+    private final HashMap<String, Account> accounts = new HashMap<>();
 
     /** Running count of accounts added through {@link #addAccount(Account)}. */
     private int accountCount = 0;
@@ -31,7 +33,7 @@ public class AccountManager {
      * @throws IllegalStateException if the internal capacity (50) is exceeded
      */
     public void addAccount(Account account) {
-        accounts.add(account);
+        accounts.put(account.getAccountNumber(), account);
         accountCount++;
     }
 
@@ -43,10 +45,7 @@ public class AccountManager {
      * @throws InvalidAccountException if no account matches
      */
     public Account findAccount(String accountNumber) {
-        var account = accounts.stream()
-                .filter(e -> e.getAccountNumber().equalsIgnoreCase(accountNumber))
-                .findFirst()
-                .orElse(null);
+        var account = accounts.get(accountNumber.toUpperCase());
         if (account == null) {
             throw new InvalidAccountException("Account not found");
         }
@@ -95,7 +94,7 @@ public class AccountManager {
                 "ACC NO", "CUSTOMER NAME", "TYPE", "BALANCE", "STATUS",
                 "─".repeat(73));
         System.out.println(HEADER);
-        for (Account acc : accounts) {
+        for (Account acc : accounts.values()) {
             System.out.print(String.format("%-8s | %-24s | %-17s | $%,12.2f | %-6s%n",
                     acc.getAccountNumber(),
                     acc.getCustomer().getName() + " (" + acc.getCustomer().getCustomerId() + ")",
@@ -113,7 +112,7 @@ public class AccountManager {
      * @return the sum of all account balances currently held by the bank
      */
     public double getTotalBalance() {
-        return accounts.stream().mapToDouble(Account::getBalance).sum();
+        return accounts.values().stream().mapToDouble(Account::getBalance).sum();
     }
 
     /**
