@@ -20,11 +20,13 @@ public class Transaction {
     private String transactionID;
     private String accountNumber;
     private String type;
-    private String timestamp;
+    private LocalDateTime timestamp;
     private double amount;
     private double balanceAfter;
 
     private static int transactionCounter = 0;
+
+    private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
 
     /**
      * Creates a transaction and assigns it a unique transaction ID and
@@ -41,8 +43,8 @@ public class Transaction {
         this.balanceAfter = balanceAfter;
         this.type = type;
         this.transactionID = String.format("TXN%03d", ++transactionCounter);
-        this.timestamp = LocalDateTime.now()
-                .format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a"));
+        this.timestamp = LocalDateTime.now();
+
     }
 
     /** Resets the static counter used for transaction-ID generation. */
@@ -86,6 +88,10 @@ public class Transaction {
 
     /** @return the timestamp as a formatted string */
     public String getTimestamp() {
+        return this.timestamp.format(FMT);
+    }
+
+    public LocalDateTime getDateTime() {
         return timestamp;
     }
 

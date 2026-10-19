@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 
 import static org.example.utils.InputParser.*;
 
+import org.example.utils.ValidationUtils;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
@@ -17,8 +18,6 @@ import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 import org.junit.platform.launcher.listeners.TestExecutionSummary;
-
-import java.io.PrintWriter;
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -184,7 +183,17 @@ public class Main {
 
         String name    = readString("Enter customer name: ");
         int age        = readInt("Enter customer age: ");
-        String contact = readString("Enter customer contact: ");
+        String contact = null;
+
+
+        while (contact == null){
+            String tContact = readString("Enter customer contact: ");
+            if(ValidationUtils.contactPredicate(tContact)){
+                contact = tContact;
+            } else {
+                System.out.println("Invalid email or number.");
+            }
+        }
         String address = readString("Enter customer address: ");
 
         int customerChoice = getCustomerType();
@@ -288,6 +297,10 @@ public class Main {
         while (account == null) {
             String accNo = readString("Enter Account Number: ");
             if (accNo.equalsIgnoreCase("quit")) return;
+            if(!ValidationUtils.isValidAccountNumber(accNo)){
+                System.out.println("Invalid account number");
+                return;
+            }
             try {
                 account = accountManager.findAccount(accNo);
             } catch (InvalidAccountException e) {
@@ -381,6 +394,10 @@ public class Main {
         while (fromAccount == null) {
             String accNo = readString("Enter Account Number to get money from: ");
             if (accNo.equalsIgnoreCase("quit")) return;
+            if(!ValidationUtils.isValidAccountNumber(accNo)){
+                System.out.println("Invalid account number");
+                return;
+            }
             try {
                 fromAccount = accountManager.findAccount(accNo);
             } catch (InvalidAccountException e) {
@@ -392,6 +409,10 @@ public class Main {
         while (toAccount == null) {
             String accNo = readString("Enter Account Number to transfer money to: ");
             if (accNo.equalsIgnoreCase("quit")) return;
+            if(!ValidationUtils.isValidAccountNumber(accNo)){
+                System.out.println("Invalid account number");
+                return;
+            }
             try {
                 toAccount = accountManager.findAccount(accNo);
             } catch (InvalidAccountException e) {
@@ -503,6 +524,10 @@ public class Main {
         Account account;
         try {
              account = accountManager.findAccount(accNo);
+            if(!ValidationUtils.isValidAccountNumber(accNo)){
+                System.out.println("Invalid account number");
+                return;
+            }
         } catch (InvalidAccountException e){
             System.out.println();
             System.out.println("Account not found: " + accNo);

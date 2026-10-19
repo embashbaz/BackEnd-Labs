@@ -141,7 +141,7 @@ Test run finished after 61 ms
 | `CheckingAccountTest` | Overdraft within / at / beyond limit, monthly-fee waiver |
 | `AccountManagerTest` | Account lookup, case-insensitive search, transfer, rollback on failure |
 | `TransactionManagerTest` | Recording, filtering, newest-first ordering, totals, net change |
-| `ExceptionTest` | Custom exception messages and `Validator` behaviour |
+| `ExceptionTest` | Custom exception messages and `ValidationUtils` behaviour |
 
 ## Continuous Integration
 

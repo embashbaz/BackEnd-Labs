@@ -3,7 +3,7 @@ package org.example.exceptions;
 import org.example.models.Account;
 import org.example.models.Customer;
 import org.example.models.Transaction;
-import org.example.utils.Validator;
+import org.example.utils.ValidationUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -63,19 +63,19 @@ public class ExceptionTest {
     @Test
     void  validatorThrowsOnZero(){
         assertThrows(InvalidAmountException.class, ()->{
-            Validator.validateAmount(0);
+            ValidationUtils.validateAmount(0);
         });
     }
 
     @Test
     void  validatorThrowsOnNegative(){
         assertThrows(InvalidAmountException.class, ()->{
-            Validator.validateAmount(-45);
+            ValidationUtils.validateAmount(-45);
         });
     }
 
     @Test
     void  validatorAcceptsPositive(){
-        Validator.validateAmount(45);
+        ValidationUtils.validateAmount(45);
     }
 }

@@ -1,10 +1,10 @@
 package org.example.services;
 
 import org.example.exceptions.InvalidAccountException;
-import org.example.utils.BoundedList;
 import org.example.models.Account;
-import org.example.utils.Validator;
+import org.example.utils.ValidationUtils;
 
+import java.util.Comparator;
 import java.util.HashMap;
 
 import static java.lang.String.format;
@@ -24,7 +24,7 @@ public class AccountManager {
     private final HashMap<String, Account> accounts = new HashMap<>();
 
     /** Running count of accounts added through {@link #addAccount(Account)}. */
-    private int accountCount = 0;
+
 
     /**
      * Adds a new account to the bank.
@@ -34,7 +34,6 @@ public class AccountManager {
      */
     public void addAccount(Account account) {
         accounts.put(account.getAccountNumber(), account);
-        accountCount++;
     }
 
     /**
@@ -72,7 +71,7 @@ public class AccountManager {
     public void transfer(String fromAcc, String toAcc, double amount) {
         Account source = findAccount(fromAcc);
         Account dest = findAccount(toAcc);
-        Validator.validateAmount(amount);
+        ValidationUtils.validateAmount(amount);
 
         double money = source.withdraw(amount);
         try {
@@ -94,7 +93,7 @@ public class AccountManager {
                 "ACC NO", "CUSTOMER NAME", "TYPE", "BALANCE", "STATUS",
                 "─".repeat(73));
         System.out.println(HEADER);
-        for (Account acc : accounts.values()) {
+        for (Account acc : accounts.values().stream().sorted(Comparator.comparing(Account::getAccountNumber)).toList()) {
             System.out.print(String.format("%-8s | %-24s | %-17s | $%,12.2f | %-6s%n",
                     acc.getAccountNumber(),
                     acc.getCustomer().getName() + " (" + acc.getCustomer().getCustomerId() + ")",
@@ -104,7 +103,7 @@ public class AccountManager {
             System.out.print(format("         | %s%n", acc.displayAccountDetails()));
             System.out.println("─".repeat(73));
         }
-        System.out.println("Total Accounts: " + accountCount);
+        System.out.println("Total Accounts: " + getAccountCount());
         System.out.printf("Total Bank Balance: $%,.2f%n", getTotalBalance());
     }
 

@@ -1,6 +1,6 @@
 package org.example.models;
 
-import org.example.utils.Validator;
+import org.example.utils.ValidationUtils;
 
 import java.util.Objects;
 
@@ -53,7 +53,7 @@ public abstract class Account implements Transactable {
      * @throws org.example.exceptions.InvalidAmountException if {@code amount <= 0}
      */
     public double deposit(double amount) {
-        Validator.validateAmount(amount);
+        ValidationUtils.validateAmount(amount);
         balance = balance + amount;
         return amount;
     }
@@ -70,7 +70,7 @@ public abstract class Account implements Transactable {
      * @throws org.example.exceptions.InvalidAmountException if {@code amount <= 0}
      */
     public double withdraw(double amount) {
-        Validator.validateAmount(amount);
+        ValidationUtils.validateAmount(amount);
         balance = balance - amount;
         return amount;
     }
@@ -150,7 +150,7 @@ public abstract class Account implements Transactable {
      */
     @Override
     public void processTransaction(double amount, String type) {
-        Validator.validateAmount(amount);
+        ValidationUtils.validateAmount(amount);
         if (Objects.equals(type, "WITHDRAWAL")) {
             withdraw(amount);
         } else if (Objects.equals(type, "DEPOSIT")) {
