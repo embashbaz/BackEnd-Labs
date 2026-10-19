@@ -1,12 +1,27 @@
 package org.example.models;
 
-public class RegularCustomer extends Customer{
+/**
+ * A regular bank customer with standard services and no fee waivers.
+ *
+ * @see PremiumCustomer
+ */
+public class RegularCustomer extends Customer {
 
-    public RegularCustomer(
-            String name,String contact,String address, int age
-    ){
+    /**
+     * Creates a regular customer.
+     *
+     * @param name    the customer's full name
+     * @param contact the customer's contact information
+     * @param address the customer's mailing address
+     * @param age     the customer's age in years
+     */
+    public RegularCustomer(String name, String contact, String address, int age) {
         super(name, contact, address, age);
     }
+
+    /**
+     * @return a multi-line block of customer details
+     */
     @Override
     public String displayCustomerDetails() {
         return String.format("""
@@ -24,6 +39,7 @@ public class RegularCustomer extends Customer{
                 getCustomerType());
     }
 
+    /** @return {@code "Regular"} */
     @Override
     public String getCustomerType() {
         return "Regular";
