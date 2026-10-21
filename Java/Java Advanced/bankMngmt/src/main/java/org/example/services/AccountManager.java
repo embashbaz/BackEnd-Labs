@@ -6,6 +6,7 @@ import org.example.utils.ValidationUtils;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 import static java.lang.String.format;
 
@@ -119,5 +120,11 @@ public class AccountManager {
      */
     public int getAccountCount() {
         return accounts.size();
+    }
+
+    public List<Account> getAllAccounts() {
+        return accounts.values().stream()
+                .sorted(Comparator.comparing(Account::getAccountNumber))
+                .toList();
     }
 }

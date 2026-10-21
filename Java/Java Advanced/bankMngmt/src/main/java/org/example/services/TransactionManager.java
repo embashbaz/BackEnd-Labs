@@ -92,4 +92,8 @@ public class TransactionManager {
                 .sorted(FunctionalUtils.byDateDescending())
                 .toList();
     }
+
+    public List<Transaction> getAllTransactions() {
+        return List.copyOf(transactions);
+    }
 }

@@ -2,10 +2,12 @@ package org.example;
 
 import org.example.exceptions.*;
 import org.example.services.AccountManager;
+import org.example.services.FilePersistenceService;
 import org.example.services.StatementGenerator;
 import org.example.services.TransactionManager;
 import org.example.models.*;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import static org.example.utils.InputParser.*;
@@ -26,9 +28,10 @@ public class Main {
     private static final AccountManager accountManager = new AccountManager();
     private static final TransactionManager transactionManager = new TransactionManager();
     private static final StatementGenerator statementGenerator = new StatementGenerator(transactionManager);
+    private static final FilePersistenceService fps = new FilePersistenceService();
 
     public static void main(String[] args) {
-        seedAccounts();
+        getInitialData();
         boolean running = true;
         while (running) {
             printMenu();
@@ -49,6 +52,32 @@ public class Main {
         }
         System.out.println("Thank you for using Bank Account Management System!");
         System.out.println("Goodbye!");
+    }
+
+    private static void getInitialData()  {
+
+        try {
+            if (fps.accountHasData()) {
+                fps.load(accountManager, transactionManager);
+                System.out.println("✓ Loaded " + accountManager.getAccountCount()
+                        + " accounts and " + transactionManager.getAllTransactions().size()
+                        + " transactions from disk.");
+            } else {
+                seedAccounts();
+                System.out.println("First run — seeded " + accountManager.getAccountCount() + " accounts.");
+            }
+        } catch (IOException e) {
+            System.out.println("Could not load data.");
+        }
+    }
+
+    private static void saveData(){
+        try {
+            fps.save(accountManager, transactionManager);
+            System.out.println("Data automatically saved to disk.");
+        } catch (IOException e) {
+            System.out.println("⚠ Save failed: " + e.getMessage());
+        }
     }
 
     private static void seedAccounts() {

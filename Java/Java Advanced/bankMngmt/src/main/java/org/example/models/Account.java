@@ -57,7 +57,7 @@ public abstract class Account implements Transactable {
      * @return the deposited amount
      * @throws org.example.exceptions.InvalidAmountException if {@code amount <= 0}
      */
-    public double deposit(double amount) {
+    public synchronized double deposit(double amount) {
         ValidationUtils.validateAmount(amount);
         balance = balance + amount;
         return amount;
@@ -74,7 +74,7 @@ public abstract class Account implements Transactable {
      * @return the withdrawn amount
      * @throws org.example.exceptions.InvalidAmountException if {@code amount <= 0}
      */
-    public double withdraw(double amount) {
+    public synchronized double withdraw(double amount) {
         ValidationUtils.validateAmount(amount);
         balance = balance - amount;
         return amount;
@@ -124,7 +124,7 @@ public abstract class Account implements Transactable {
     }
 
     /** @return the current balance */
-    public double getBalance() {
+    public synchronized double getBalance() {
         return balance;
     }
 
