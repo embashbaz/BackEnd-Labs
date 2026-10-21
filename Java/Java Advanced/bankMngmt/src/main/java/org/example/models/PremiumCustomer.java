@@ -22,6 +22,10 @@ public class PremiumCustomer extends Customer {
         super(customerId, name, contact, address, age);
     }
 
+    public PremiumCustomer( String name, String contact, String address, int age) {
+        super( name, contact, address, age);
+    }
+
     /**
      * @return always {@code true} — premium customers have fees waived
      */

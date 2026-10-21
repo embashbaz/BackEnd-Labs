@@ -33,6 +33,12 @@ public class SavingsAccount extends Account {
         this.minimumBalance = MINIMUM_BALANCE;
     }
 
+    public SavingsAccount( Customer customer, double balance, String status) {
+        super( customer, balance, status);
+        this.interestRate = DEFAULT_INTEREST_RATE;
+        this.minimumBalance = MINIMUM_BALANCE;
+    }
+
     /**
      * Withdraws the given amount if the resulting balance would not fall
      * below {@link #minimumBalance}.

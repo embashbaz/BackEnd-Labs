@@ -19,6 +19,10 @@ public class RegularCustomer extends Customer {
         super(customerId, name, contact, address, age);
     }
 
+    public RegularCustomer(String name, String contact, String address, int age) {
+        super(name, contact, address, age);
+    }
+
     /**
      * @return a multi-line block of customer details
      */

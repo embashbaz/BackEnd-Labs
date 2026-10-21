@@ -38,6 +38,16 @@ public class CheckingAccount extends Account {
         }
     }
 
+    public CheckingAccount( Customer customer, double balance, String status) {
+        super(customer, balance, status);
+        this.overdraftLimit = OVERDRAFT_LIMIT;
+        if (getCustomer() instanceof PremiumCustomer pc && pc.hasWaivedFees()) {
+            this.monthlyFee = 0;
+        } else {
+            this.monthlyFee = REGULAR_MONTHLY_FEE;
+        }
+    }
+
     /**
      * Withdraws the given amount if the resulting balance would not fall
      * below {@code -overdraftLimit}.
