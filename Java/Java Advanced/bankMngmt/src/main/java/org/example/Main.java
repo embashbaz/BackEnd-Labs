@@ -482,7 +482,7 @@ public class Main {
             String accNo = readString("Enter Account Number to transfer money to: ");
             if(!ValidationUtils.isValidAccountNumber(accNo)){
                 System.out.println("Invalid account number");
-                return;
+                continue;
             }
             try {
                 toAccount = accountManager.findAccount(accNo);
