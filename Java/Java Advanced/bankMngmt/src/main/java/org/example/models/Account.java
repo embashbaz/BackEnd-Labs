@@ -31,15 +31,20 @@ public abstract class Account implements Transactable {
     /** Static counter used to generate sequential account numbers. */
     static int accountCounter = 0;
 
+    public Account(Customer customer, double balance, String status) {
+        this(String.format("ACC%03d", ++accountCounter), customer, balance, status);
+    }
+
     /**
      * Creates a new account and assigns it a unique account number.
      *
+     * @param accountNumber the account number
      * @param customer the account owner; must not be {@code null}
      * @param balance  the opening balance
      * @param status   the initial account status (e.g., {@code "Active"})
      */
-    public Account(Customer customer, double balance, String status) {
-        this.accountNumber = String.format("ACC%03d", ++accountCounter);
+    protected Account(String accountNumber, Customer customer, double balance, String status) {
+        this.accountNumber = accountNumber;
         this.customer = customer;
         this.balance = balance;
         this.status = status;
@@ -137,6 +142,9 @@ public abstract class Account implements Transactable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public static void setAccountCounter(int value) { accountCounter = value; }
+    public static int getAccountCounter() { return accountCounter; }
 
     /**
      * Dispatches a transaction to {@link #deposit(double)} or

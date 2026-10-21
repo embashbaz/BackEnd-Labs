@@ -27,8 +27,8 @@ public class SavingsAccount extends Account {
      * @param balance  the opening balance
      * @param status   the initial account status
      */
-    public SavingsAccount(Customer customer, double balance, String status) {
-        super(customer, balance, status);
+    public SavingsAccount(String accountNumber, Customer customer, double balance, String status) {
+        super(accountNumber, customer, balance, status);
         this.interestRate = DEFAULT_INTEREST_RATE;
         this.minimumBalance = MINIMUM_BALANCE;
     }

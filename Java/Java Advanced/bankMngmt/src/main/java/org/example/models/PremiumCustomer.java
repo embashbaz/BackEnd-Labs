@@ -18,8 +18,8 @@ public class PremiumCustomer extends Customer {
      * @param address the customer's mailing address
      * @param age     the customer's age in years
      */
-    public PremiumCustomer(String name, String contact, String address, int age) {
-        super(name, contact, address, age);
+    public PremiumCustomer(String customerId, String name, String contact, String address, int age) {
+        super(customerId, name, contact, address, age);
     }
 
     /**

@@ -28,8 +28,8 @@ public class CheckingAccount extends Account {
      * @param balance  the opening balance
      * @param status   the initial account status
      */
-    public CheckingAccount(Customer customer, double balance, String status) {
-        super(customer, balance, status);
+    public CheckingAccount(String accountNumber, Customer customer, double balance, String status) {
+        super(accountNumber, customer, balance, status);
         this.overdraftLimit = OVERDRAFT_LIMIT;
         if (getCustomer() instanceof PremiumCustomer pc && pc.hasWaivedFees()) {
             this.monthlyFee = 0;

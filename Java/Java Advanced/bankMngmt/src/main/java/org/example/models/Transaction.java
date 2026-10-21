@@ -47,6 +47,19 @@ public class Transaction {
 
     }
 
+    public Transaction(String transactionID, String accountNumber, String type,
+                       double amount, double balanceAfter, LocalDateTime timestamp) {
+        this.transactionID = transactionID;
+        this.accountNumber = accountNumber;
+        this.type = type;
+        this.amount = amount;
+        this.balanceAfter = balanceAfter;
+        this.timestamp = timestamp;
+    }
+
+    public static void setTransactionCounter(int value) { transactionCounter = value; }
+    public static int getTransactionCounter() { return transactionCounter; }
+
     /** Resets the static counter used for transaction-ID generation. */
     public static void resetCounter() {
         transactionCounter = 0;

@@ -16,6 +16,10 @@ public abstract class Customer {
     /** Static counter used to generate sequential customer IDs. */
     static int customerCounter = 0;
 
+    public Customer(String name, String contact, String address, int age) {
+        this(String.format("CUS%03d", ++customerCounter), name, contact, address, age);
+    }
+
     /**
      * Creates a new customer and assigns a unique customer ID.
      *
@@ -24,8 +28,8 @@ public abstract class Customer {
      * @param address the customer's mailing address
      * @param age     the customer's age in years
      */
-    public Customer(String name, String contact, String address, int age) {
-        this.customerId = String.format("CUS%03d", ++customerCounter);
+    protected Customer(String customerId, String name, String contact, String address, int age) {
+        this.customerId = customerId;
         this.name = name;
         this.contact = contact;
         this.address = address;

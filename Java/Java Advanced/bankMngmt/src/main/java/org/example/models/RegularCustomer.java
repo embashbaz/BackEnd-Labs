@@ -15,8 +15,8 @@ public class RegularCustomer extends Customer {
      * @param address the customer's mailing address
      * @param age     the customer's age in years
      */
-    public RegularCustomer(String name, String contact, String address, int age) {
-        super(name, contact, address, age);
+    public RegularCustomer(String customerId, String name, String contact, String address, int age) {
+        super(customerId, name, contact, address, age);
     }
 
     /**
