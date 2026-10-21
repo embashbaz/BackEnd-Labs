@@ -36,14 +36,24 @@ public class FilePersistenceService {
 
         try (Stream<String> lines = Files.lines(ACCOUNTS)) {
             lines.filter(l -> !l.isBlank() && !l.startsWith("#"))
-                    .map(this::parseAccount)
-                    .forEach(am::addAccount);
+                    .forEach(l -> {
+                        try {
+                            am.addAccount(parseAccount(l));
+                        } catch (Exception e) {
+                            System.err.println("Skipping bad account line: " + l);
+                        }
+                    });
         }
 
         try (Stream<String> lines = Files.lines(TXNS)) {
             lines.filter(l -> !l.isBlank() && !l.startsWith("#"))
-                    .map(this::parseTransaction)
-                    .forEach(tm::addTransaction);
+                    .forEach(t ->{
+                                try {
+                                    tm.addTransaction(parseTransaction(t));
+                                } catch (Exception e) {
+                                    System.err.println("Skipping bad transaction line: " + t);
+                                }
+                            });
         }
 
         syncCounters(am, tm);
@@ -82,6 +92,10 @@ public class FilePersistenceService {
 
     private Account parseAccount(String line) {
         String[] p = line.split(";", -1);
+        if(p.length != 10){
+            System.err.println("Skipping bad account line: " + line);
+            throw new RuntimeException();
+        }
         String accNo = p[0], accType = p[1], custType = p[2];
         String name = p[3], contact = p[4], address = p[5];
         int age = Integer.parseInt(p[6]);
@@ -109,6 +123,10 @@ public class FilePersistenceService {
 
     private Transaction parseTransaction(String line) {
         String[] p = line.split(";", -1);
+        if(p.length != 6){
+            System.err.println("Skipping bad transaction line: " + line);
+            throw new RuntimeException();
+        }
         return new Transaction(p[0], p[1], p[2],
                 Double.parseDouble(p[3]), Double.parseDouble(p[4]),
                 LocalDateTime.parse(p[5]));

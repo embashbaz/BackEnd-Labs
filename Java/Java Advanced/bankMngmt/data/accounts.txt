@@ -1,0 +1,6 @@
+ACC001;Savings;Regular;John Smith;+1-555-0101;12 Elm Street, Springfield;34;5250.00;Active;CUS001
+ACC002;Checking;Regular;Sarah Johnson;+1-555-0102;88 Pine Road, Springfield;29;3450.00;Active;CUS002
+ACC003;Savings;Regular;Michael Chen;+1-555-0103;5 Birch Lane, Springfield;41;21350.00;Active;CUS003
+ACC004;Checking;Regular;Emily Brown;+1-555-0104;230 Cedar Ave, Springfield;26;890.00;Active;CUS004
+ACC005;Savings;Premium;David Wilson;+1-555-0105;17 Oak Boulevard, Springfield;52;25300.00;Active;CUS005
+ACC006;Checking;Regular;John doe;john@gmail;john somewhere;45;300.00;Active;CUS006

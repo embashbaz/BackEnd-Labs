@@ -4,9 +4,8 @@ import org.example.exceptions.InvalidAccountException;
 import org.example.models.Account;
 import org.example.utils.ValidationUtils;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static java.lang.String.format;
 
@@ -31,7 +30,6 @@ public class AccountManager {
      * Adds a new account to the bank.
      *
      * @param account the account to add; must not be {@code null}
-     * @throws IllegalStateException if the internal capacity (50) is exceeded
      */
     public void addAccount(Account account) {
         accounts.put(account.getAccountNumber(), account);
@@ -39,6 +37,14 @@ public class AccountManager {
 
     public void clear(){
         accounts.clear();
+    }
+
+    public Account getRandomAccount() {
+        if (accounts.isEmpty()) {
+            throw new IllegalStateException("No accounts available.");
+        }
+        List<Account> list = new ArrayList<>(accounts.values());
+        return list.get(ThreadLocalRandom.current().nextInt(list.size()));
     }
 
     /**

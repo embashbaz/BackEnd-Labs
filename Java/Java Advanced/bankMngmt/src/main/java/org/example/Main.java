@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 
 import static org.example.utils.InputParser.*;
 
+import org.example.utils.ConcurrencyUtils;
 import org.example.utils.ValidationUtils;
 import org.junit.platform.engine.discovery.DiscoverySelectors;
 import org.junit.platform.launcher.Launcher;
@@ -42,17 +43,18 @@ public class Main {
                     case 2 -> transact();
                     case 3 -> viewTransactionHistory();
                     case 4 -> persistanceMenu();
-                    case 5 -> ;
+                    case 5 -> ConcurrencyUtils.runConcurrentSim(accountManager);
                     case 6 -> runTest();
                     case 7 -> running = false;
                     default -> System.out.println("Invalid choice. Try again.");
                 }
             } catch (QuitApplicationException e){
                 running = false;
-                saveData();
             }
 
         }
+
+        saveData();
         System.out.println("Thank you for using Bank Account Management System!");
         System.out.println("Goodbye!");
     }
@@ -69,7 +71,14 @@ public class Main {
         int choice        = readInt("Enter option: ");
         switch (choice){
             case 1 -> saveData();
-            case 2 -> getInitialData();
+            case 2 -> {
+                if (readYesNo("Reload discards unsaved changes. Continue? (Y/N): ")) {
+                    getInitialData();
+                } else {
+                    System.out.println("Reload cancelled.");
+                }
+                pressEnter();
+            }
             case 3 -> {
                 pressEnter();
             }
@@ -92,11 +101,14 @@ public class Main {
                         + " accounts and " + transactionManager.getAllTransactions().size()
                         + " transactions from disk.");
             } else {
+                Account.resetCounter();
+                Customer.resetCounter();
+                Transaction.resetCounter();
                 seedAccounts();
                 System.out.println("First run — seeded " + accountManager.getAccountCount() + " accounts.");
             }
         } catch (IOException e) {
-            System.out.println("Could not load data.");
+            System.out.println("Could not load data: " + e.getMessage());
         }
     }
 
@@ -230,8 +242,8 @@ public class Main {
             3. Generate Account Statements
             4. Save / Load data
             5. Run Concurrent Simulation
-            4. Run Tests
-            5. Exit
+            6. Run Tests
+            7. Exit
 
             """);
     }
@@ -358,7 +370,6 @@ public class Main {
         Account account = null;
         while (account == null) {
             String accNo = readString("Enter Account Number: ");
-            if (accNo.equalsIgnoreCase("quit")) continue;
             if(!ValidationUtils.isValidAccountNumber(accNo)){
                 System.out.println("Invalid account number");
                 continue;
@@ -455,10 +466,9 @@ public class Main {
         Account fromAccount = null;
         while (fromAccount == null) {
             String accNo = readString("Enter Account Number to get money from: ");
-            if (accNo.equalsIgnoreCase("quit")) return;
             if(!ValidationUtils.isValidAccountNumber(accNo)){
                 System.out.println("Invalid account number");
-                return;
+                continue;
             }
             try {
                 fromAccount = accountManager.findAccount(accNo);
@@ -470,7 +480,6 @@ public class Main {
         Account toAccount = null;
         while (toAccount == null) {
             String accNo = readString("Enter Account Number to transfer money to: ");
-            if (accNo.equalsIgnoreCase("quit")) return;
             if(!ValidationUtils.isValidAccountNumber(accNo)){
                 System.out.println("Invalid account number");
                 return;

@@ -1,6 +1,5 @@
 package org.example.services;
 
-import org.example.utils.BoundedList;
 import org.example.models.Transaction;
 import org.example.utils.FunctionalUtils;
 
@@ -12,8 +11,7 @@ import java.util.List;
  *
  * <p>This service is purely data-oriented: it does not print anything.
  * Formatting and display of statements is handled by
- * {@link StatementGenerator}. Transactions are held in a
- * {@link BoundedList} capped at 200 entries.</p>
+ * {@link StatementGenerator}.
  */
 public class TransactionManager {
 
