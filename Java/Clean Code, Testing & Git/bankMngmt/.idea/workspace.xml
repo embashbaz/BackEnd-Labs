@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cac930-e80e-4592-a847-564142d89105" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/CheckingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/CheckingAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/SavingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/SavingsAccount.java" afterDir="false" />
-    </list>
+    <list default="true" id="04cac930-e80e-4592-a847-564142d89105" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,61 +48,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.006611869589375" />
-      <entry key="MS500" value="2.4307012651375812" />
-      <entry key="S2" value="9.062623560025049" />
-      <entry key="S5" value="17.446123187768286" />
-      <entry key="S10" value="25.105220115614124" />
-      <entry key="S30" value="34.66269391016788" />
-      <entry key="S60" value="38.05291424169072" />
-      <entry key="M2" value="40.45873385546162" />
-      <entry key="M5" value="54.921208360132105" />
-      <entry key="M10" value="85.80099301494897" />
-      <entry key="M15" value="107.5676931678526" />
-      <entry key="M30" value="140.3569876915606" />
-      <entry key="H1" value="162.60028134961783" />
-      <entry key="H2" value="175.79556448044633" />
-      <entry key="H4" value="190.5947995362293" />
-      <entry key="D1" value="552.6334481808627" />
-      <entry key="W1" value="1563.3977876193694" />
+      <entry key="MS100" value="3.8557014030602246E-14" />
+      <entry key="MS500" value="0.0021076850641438393" />
+      <entry key="S2" value="0.4021572307794721" />
+      <entry key="S5" value="1.9890244360762885" />
+      <entry key="S10" value="3.6674450152137" />
+      <entry key="S30" value="5.623216287047231" />
+      <entry key="S60" value="6.271312368847394" />
+      <entry key="M2" value="6.624958640319519" />
+      <entry key="M5" value="6.84733166242442" />
+      <entry key="M10" value="6.923216634289695" />
+      <entry key="M15" value="6.948710725055531" />
+      <entry key="M30" value="6.9743050440004435" />
+      <entry key="H1" value="6.98731795765957" />
+      <entry key="H2" value="7.1890736901551096" />
+      <entry key="H4" value="13.722632907111475" />
+      <entry key="D1" value="331.0092708222872" />
+      <entry key="W1" value="1469.4555607337245" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="7.281721009234255E-163" />
-      <entry key="S2" value="2.92118127997049E-41" />
-      <entry key="S5" value="6.112563777904503E-17" />
-      <entry key="S10" value="7.818288673299604E-9" />
-      <entry key="S30" value="0.0019847445925582495" />
-      <entry key="S60" value="0.044608067287879416" />
-      <entry key="M2" value="0.21866132405743885" />
-      <entry key="M5" value="0.6786971488746573" />
-      <entry key="M10" value="1.109392306528457" />
-      <entry key="M15" value="1.334335410994624" />
-      <entry key="M30" value="1.623743821126172" />
-      <entry key="H1" value="1.79932451286301" />
-      <entry key="H2" value="1.9042422444482026" />
-      <entry key="H4" value="2.6460523612448004" />
-      <entry key="D1" value="73.93040154111846" />
-      <entry key="W1" value="364.14605576285925" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0" />
+      <entry key="M15" value="1.0" />
+      <entry key="M30" value="1.000000000016855" />
+      <entry key="H1" value="1.0000163474418309" />
+      <entry key="H2" value="1.0161613433483339" />
+      <entry key="H4" value="1.5299805309523795" />
+      <entry key="D1" value="50.350349077536265" />
+      <entry key="W1" value="349.1688434760048" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9722742843014055" />
-      <entry key="MS500" value="2.4110035985429636" />
-      <entry key="S2" value="9.043496459095362" />
-      <entry key="S5" value="17.431440442021493" />
-      <entry key="S10" value="25.094313510285286" />
-      <entry key="S30" value="34.65939583182352" />
-      <entry key="S60" value="38.09424986785653" />
-      <entry key="M2" value="40.67492102712579" />
-      <entry key="M5" value="55.59757317824115" />
-      <entry key="M10" value="86.9082981151766" />
-      <entry key="M15" value="108.90026619104347" />
-      <entry key="M30" value="141.9795927456397" />
-      <entry key="H1" value="164.39895395511405" />
-      <entry key="H2" value="177.69945481309298" />
-      <entry key="H4" value="193.24056866214835" />
-      <entry key="D1" value="626.56251210243" />
-      <entry key="W1" value="1927.5428482681807" />
+      <entry key="MS100" value="5.4250651964173245E-5" />
+      <entry key="MS500" value="0.14233900591880166" />
+      <entry key="S2" value="1.0133993032873614" />
+      <entry key="S5" value="2.8086963074384808" />
+      <entry key="S10" value="4.571843683353541" />
+      <entry key="S30" value="6.589877974183907" />
+      <entry key="S60" value="7.254435065149431" />
+      <entry key="M2" value="7.6164657141845264" />
+      <entry key="M5" value="7.843921158608396" />
+      <entry key="M10" value="7.921509133589059" />
+      <entry key="M15" value="7.947571889521091" />
+      <entry key="M30" value="7.973735374879097" />
+      <entry key="H1" value="7.987049396965503" />
+      <entry key="H2" value="8.205087300792398" />
+      <entry key="H4" value="15.252456087962504" />
+      <entry key="D1" value="381.3586301874565" />
+      <entry key="W1" value="1818.6234330994816" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -118,48 +114,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.AccountManagerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.AccountTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CheckingAccountTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExceptionTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExceptionTest.insufficientFundsExceptionMessage.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExceptionTest.invalidAmountExceptionMessage.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExceptionTest.validatorAcceptsPositive.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ExceptionTest.validatorThrowsOnZero.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SavingsAccountTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'bankMngmt.test'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TransactionManagerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.bankMngmt [:org.example.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.bankMngmt [test].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;clean__code&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/emery/Documents/Work/amalitech/lab/labJava/Java/Clean Code, Testing &amp; Git/bankMngmt&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/emery/Documents/Work/amalitech/lab/labJava/Java/Java Basics/bankMngmt/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.AccountManagerTest.executor": "Run",
+    "Gradle.AccountTest.executor": "Run",
+    "Gradle.CheckingAccountTest.executor": "Run",
+    "Gradle.ExceptionTest.executor": "Run",
+    "Gradle.ExceptionTest.insufficientFundsExceptionMessage.executor": "Run",
+    "Gradle.ExceptionTest.invalidAmountExceptionMessage.executor": "Run",
+    "Gradle.ExceptionTest.validatorAcceptsPositive.executor": "Run",
+    "Gradle.ExceptionTest.validatorThrowsOnZero.executor": "Run",
+    "Gradle.SavingsAccountTest.executor": "Run",
+    "Gradle.Tests in 'bankMngmt.test'.executor": "Run",
+    "Gradle.TransactionManagerTest.executor": "Run",
+    "Gradle.bankMngmt [:org.example.Main.main()].executor": "Run",
+    "Gradle.bankMngmt [test].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "java__advanced",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/emery/Documents/Work/amalitech/lab/labJava/Java/Clean Code, Testing & Git/bankMngmt",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/emery/Documents/Work/amalitech/lab/labJava/Java/Java Basics/bankMngmt/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="SavingsAccountTest" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.bankMngmt [test]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="bankMngmt.main" />
@@ -275,6 +271,15 @@
       <RunAsTest>false</RunAsTest>
       <GradleProfilingDisabled>false</GradleProfilingDisabled>
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2" />
     </configuration>
     <recent_temporary>

@@ -296,10 +296,10 @@ public class Main {
         Account account = null;
         while (account == null) {
             String accNo = readString("Enter Account Number: ");
-            if (accNo.equalsIgnoreCase("quit")) return;
+            if (accNo.equalsIgnoreCase("quit")) continue;
             if(!ValidationUtils.isValidAccountNumber(accNo)){
                 System.out.println("Invalid account number");
-                return;
+                continue;
             }
             try {
                 account = accountManager.findAccount(accNo);
@@ -520,14 +520,18 @@ public class Main {
         System.out.println("─".repeat(25));
         System.out.println();
 
-        String accNo = readString("Enter Account Number: ");
+        String accNo = null;
+        while(accNo == null){
+            accNo = readString("Enter Account Number: ");
+            if(!ValidationUtils.isValidAccountNumber(accNo)){
+                System.out.println("Invalid account number");
+                accNo = null;
+            }
+        }
+
         Account account;
         try {
              account = accountManager.findAccount(accNo);
-            if(!ValidationUtils.isValidAccountNumber(accNo)){
-                System.out.println("Invalid account number");
-                return;
-            }
         } catch (InvalidAccountException e){
             System.out.println();
             System.out.println("Account not found: " + accNo);
