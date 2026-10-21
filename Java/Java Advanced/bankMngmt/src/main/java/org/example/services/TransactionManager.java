@@ -19,6 +19,11 @@ public class TransactionManager {
 
     private final ArrayList<Transaction> transactions = new ArrayList<>();
 
+
+    public void clear(){
+        transactions.clear();
+    }
+
     /**
      * Records a transaction.
      *

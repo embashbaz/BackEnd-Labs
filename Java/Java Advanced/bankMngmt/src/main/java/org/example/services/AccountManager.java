@@ -37,6 +37,10 @@ public class AccountManager {
         accounts.put(account.getAccountNumber(), account);
     }
 
+    public void clear(){
+        accounts.clear();
+    }
+
     /**
      * Finds an account by its account number (case-insensitive).
      *

@@ -41,12 +41,15 @@ public class Main {
                     case 1 -> manageAccount();
                     case 2 -> transact();
                     case 3 -> viewTransactionHistory();
-                    case 4 -> runTest();
-                    case 5 -> running = false;
+                    case 4 -> persistanceMenu();
+                    case 5 -> ;
+                    case 6 -> runTest();
+                    case 7 -> running = false;
                     default -> System.out.println("Invalid choice. Try again.");
                 }
             } catch (QuitApplicationException e){
                 running = false;
+                saveData();
             }
 
         }
@@ -54,9 +57,35 @@ public class Main {
         System.out.println("Goodbye!");
     }
 
+    private static void persistanceMenu(){
+        System.out.println("""
+            
+           
+            1. Save now
+            2. Reload from disk
+            3. Exit
+
+            """);
+        int choice        = readInt("Enter option: ");
+        switch (choice){
+            case 1 -> saveData();
+            case 2 -> getInitialData();
+            case 3 -> {
+                pressEnter();
+            }
+            default -> {
+                System.out.println("Invalid choice. Try again.");
+                persistanceMenu();
+                return;
+            }
+        }
+    }
+
     private static void getInitialData()  {
 
         try {
+            accountManager.clear();
+            transactionManager.clear();
             if (fps.accountHasData()) {
                 fps.load(accountManager, transactionManager);
                 System.out.println("✓ Loaded " + accountManager.getAccountCount()
@@ -199,11 +228,15 @@ public class Main {
             1. Manage Accounts
             2. Perform Transactions
             3. Generate Account Statements
+            4. Save / Load data
+            5. Run Concurrent Simulation
             4. Run Tests
             5. Exit
 
             """);
     }
+
+
 
     private static void createAccount() {
         System.out.println("ACCOUNT CREATION");
